@@ -1,7 +1,7 @@
 App({
 
   appId: "",
-  REQUEST_HOST: "https://api.quanmingpian.com",
+  REQUEST_HOST: "http://blog.quanmingpian.com",
   SESSION_STORAGE_KEY: "xxs-session-storage",
   SERVER_ERROR_TEXT: "服务器未成功处理请求",
 
@@ -36,7 +36,7 @@ App({
           })
           //发起网络请求
           wx.request({
-            url: _this.REQUEST_HOST + '/xxs/login',
+            url: _this.REQUEST_HOST + '/Home/SmallApp/login',
             method: "POST",
             data: {
               code: res.code
