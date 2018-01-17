@@ -2,40 +2,26 @@
 
 <view class="container">
 
-     <!-- 货物信息 -->
-     <view class="zan-panel">
-        <view class="zan-cell zan-form__item">
-            <text class="zan-form__title">买什么</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" maxlength="11" placeholder="请填写物品名称" />
-        </view>
-        <view class="zan-cell zan-form__item">
-            <text class="zan-form__title">买多少</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" type="number" maxlength="11" placeholder="请填写购买数量" />
-        </view>
-    </view>
-
     <!-- 表单 -->
     <view class="zan-panel">
         <view class="zan-cell zan-form__item">
-            <text class="zan-form__title">收货人</text>
+            <text class="zan-form__title">姓名</text>
             <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" maxlength="11" placeholder="请填收货人姓名" />
         </view>
         <view class="zan-cell zan-form__item">
-            <text class="zan-form__title">联系电话</text>
+            <text class="zan-form__title">昵称</text>
             <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" type="number" maxlength="11" placeholder="请填写联系电话" />
         </view>
         <view class="zan-cell zan-form__item">
-            <text class="zan-form__title">选择地区</text>
-            <view class="zan-cell__bd">
-                <picker mode="region" bindchange="bindRegionChange" value="{{region}}" >
-                    <view class="picker">
-                        {{region[0]}} {{region[1]}} {{region[2]}}
-                    </view>
-                </picker>
-            </view>
+            <text class="zan-form__title">手机</text>
+            <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" type="number" maxlength="11" placeholder="请填写联系电话" />
         </view>
         <view class="zan-cell zan-form__item">
-            <text class="zan-form__title">详细地址</text>
+            <text class="zan-form__title">地址</text>
+            <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" maxlength="11" placeholder="请填写详细地址" />
+        </view>
+        <view class="zan-cell zan-form__item">
+            <text class="zan-form__title">身份证</text>
             <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" maxlength="11" placeholder="请填写详细地址" />
         </view>
     </view>
@@ -43,7 +29,7 @@
 
     <!-- 按钮 -->
     <view class="zan-panel-noborder zan-paddiing-15">
-        <button class="zan-btn zan-btn--primary" bindtap="publish">确认下单</button>
+        <button class="zan-btn zan-btn--primary" bindtap="publish">保存</button>
     </view>
 
     <!-- 标签弹框 -->

@@ -1,13 +1,12 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/detail/detail",
     "pages/publish/publish",
-    "pages/usercenter/usercenter"
+    "pages/usercenter/usercenter",
+    "pages/edit/edit"
   ],
   "window":{
     "navigationBarBackgroundColor": "#393a3e",
-    "navigationBarTitleText": "附近新鲜事儿",
+    "navigationBarTitleText": "海鲜特价",
     "navigationBarTextStyle":"white",
     "backgroundTextStyle":"dark",
     "backgroundColor": "#f9f9f9"
@@ -19,16 +18,10 @@
     "borderStyle":"black",
 		"list": [
 			{
-				"pagePath": "pages/index/index",
-				"iconPath": "image/faxian.png",
-				"selectedIconPath": "image/faxian-active.png",
-				"text": "发现"
-			},
-			{
 				"pagePath": "pages/publish/publish",
 				"iconPath": "image/fabu.png",
 				"selectedIconPath": "image/fabu-active.png",
-				"text": "发布"
+				"text": "下单"
 			},
 			{
 				"pagePath": "pages/usercenter/usercenter",

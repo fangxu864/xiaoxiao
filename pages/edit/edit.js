@@ -31,8 +31,8 @@ Page(Object.assign({}, Zan.Toast, {
     address: "请选择地址",
     tagName: "请选择标签",
     tagList: ["服务名片", "闲置二手", "全职兼职", "买房租房", "宠物信息", "其它类别"],
-    region: ['请选择', '请选择', '请选择'],
-    // customItem: '全部'
+    region: ['广东省', '广州市', '海珠区'],
+    customItem: '全部'
   },
 
   onShow: function () {
@@ -110,7 +110,7 @@ Page(Object.assign({}, Zan.Toast, {
     if (content == "") {
       console.log(11212);
       console.log(this.showZanToast)
-      this.showZanToast('发布内容不能为空', 1500);
+      this.showZanToast('发布内容不能为空',1500);
       // Common.alert("发布内容不能为空");
       return false;
     }
