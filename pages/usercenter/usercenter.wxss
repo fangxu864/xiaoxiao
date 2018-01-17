@@ -1,0 +1,7 @@
+.user-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+}

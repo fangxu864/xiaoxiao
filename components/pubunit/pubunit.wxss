@@ -1,0 +1,83 @@
+@import "./util.wxss";
+@import "./font.wxss";
+
+
+/* 信息列表 */
+
+.xxs-info {
+    display: flex;
+    padding: 10px 15px 5px 15px;
+}
+
+.xxs-info__lt {
+    flex-grow: 0;
+    padding-right: 10px;
+}
+
+.xxs-info__userimg {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.xxs-info__nameline {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.xxs-info__rt {
+    flex-grow: 1;
+}
+
+.xxs-info__content {
+    padding-top: 10px;
+}
+
+.xxs-info__imgbox {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px
+}
+
+.xxs-info__img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+
+.xxs-info__imgbox-item {
+    position: relative;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    width: 32%;
+    overflow: hidden;
+}
+.xxs-info__imgbox-item:nth-child(3n){
+    margin-right: 0;
+}
+.xxs-info__address{
+    /* color: #3283fa; */
+}
+.xxs-info__address-icon{
+    margin-right: 3px;
+}
+
+
+
+.xxs-info__imgbox-item::after {
+    content: '';
+    display: block;
+    margin-top: 100%;
+}
+
+.xxs-info__timebtnline {
+    height: 30px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

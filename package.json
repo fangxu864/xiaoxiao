@@ -1,0 +1,22 @@
+{
+  "name": "xxs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fangxu864/xxs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fangxu864/xxs/issues"
+  },
+  "homepage": "https://github.com/fangxu864/xxs#readme",
+  "dependencies": {
+    "core-js-builder": "^2.5.1"
+  }
+}

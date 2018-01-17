@@ -1,0 +1,124 @@
+.zan-panel {
+    background: #fff;
+    border-top: 1rpx solid #e5e5e5;
+    border-bottom: 1rpx solid #e5e5e5;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.zan-clearfix {
+    zoom: 1;
+}
+
+.zan-clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.zan-font-14 {
+    font-size: 14px;
+}
+
+.zan-font-16 {
+    font-size: 14px;
+}
+
+.zan-c-gray-darker {
+    color: #666 !important;
+}
+
+.zan-ellipsis--l3 {
+    max-height: 60px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.zan-pull-left {
+    float: left;
+}
+
+.zan-pull-right {
+    float: right;
+}
+
+.zan-label {
+    display: inline-block;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    color: #333;
+    border: 1rpx solid #999;
+    padding: 0px 10px;
+    border-radius: 2px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.zan-label:last-child {
+    margin-right: 0px;
+}
+
+.zan-label--primary {
+    color: #f44;
+    background: #fff;
+    border: 1rpx solid #f44;
+}
+
+.zan-label--other {
+    color: #4b0;
+    background: #fff;
+    border: 1rpx solid #4b0;
+}
+
+.zan-label--disabled {
+    color: #cacaca;
+    background: #eee;
+    border: 1rpx solid #e5e5e5;
+}
+
+.zan-label--small {
+    font-size: 11px;
+    height: 16px;
+    line-height: 16px;
+    padding: 0px 3px;
+}
+
+.zan-label--plain.zan-label--primary {
+    color: #f44;
+    background: #fff;
+}
+
+.zan-font-12 {
+    font-size: 12px;
+}
+
+.zan-font-12-i {
+    font-size: 12px !important;
+}
+
+.zan-c-gray-dark {
+    color: #999 !important;
+}
+
+.zan-inline-block {
+    display: inline-block;
+}
+
+.zan-margin-right-10 {
+    margin-right: 10px;
+}
+
+.zan-font-18-i {
+    font-size: 18px !important;
+}
+
+.zan-active-gray:active {
+    background-color: #ddd;
+}

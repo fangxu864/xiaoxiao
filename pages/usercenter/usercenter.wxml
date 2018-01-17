@@ -1,0 +1,38 @@
+<view class="container">
+    <view class="zan-panel">
+        <view class="zan-cell zan-cell--access zan-active-gray">
+            <view class="zan-cell__bd">
+                <image class="user-img" src="http://images.12301.cc/123933/1102540509.jpg"></image>
+                <text class="user-name">我叫张三</text>
+            </view>
+            <view class="zan-cell__ft"></view>
+        </view>
+    </view>
+    
+    <view class="zan-panel">
+        <view class="zan-cell zan-cell--access zan-active-gray" bindtap="uploadImg"> 
+            <view class="zan-cell__bd">我的发布</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+        <view class="zan-cell zan-cell--access zan-active-gray">
+            <view class="zan-cell__bd">我的回复/评论</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+    </view>
+
+
+    <view class="zan-panel">
+        <view class="zan-cell zan-active-gray" catchtap="updateUserInfo">
+            <view class="zan-cell__bd zan-font-14 zan-font-bold">同步微信信息</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+        <view class="zan-cell zan-active-gray" catchtap="authSet">
+            <view class="zan-cell__bd zan-font-14 zan-font-bold">授权设置</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+        <!-- <view class="zan-cell zan-active-gray" catchtap="userClearStorage">
+            <view class="zan-cell__bd zan-font-14 zan-font-bold">清除缓存</view>
+            <view class="zan-cell__ft"></view>
+        </view> -->
+    </view>
+</view>

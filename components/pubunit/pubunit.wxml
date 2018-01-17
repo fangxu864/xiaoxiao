@@ -1,0 +1,86 @@
+<view class="">
+
+    <!-- 内容 -->
+    <view class="zan-panel " bindtap="onInfoListTap">
+        <view class="xxs-info">
+            <!-- 左边 -->
+            <view class="xxs-info__lt">
+                <image class="xxs-info__userimg" src="http://images.12301.cc/123933/1102540509.jpg"></image>
+            </view>
+            <!-- 右边 -->
+            <view class="xxs-info__rt">
+                <!-- 昵称行 -->
+                <view class="xxs-info__nameline">
+                    <view class="zan-font-14 =">昵称昵称</view>
+                    <view class="zan-pull-right">
+                        <view class="zan-label zan-active-gray zan-label--other">联系Ta</view>
+                        <view class="zan-label zan-active-gray zan-label--other">闲置二手</view>
+                    </view>
+                </view>
+                <!-- 内容文本行 -->
+                <view class=" xxs-info__content zan-font-14 zan-ellipsis--l3">
+                    <text class="">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text>
+                </view>
+                <!-- 内容图片行 -->
+                <view class="xxs-info__imgbox">
+                    <view class="xxs-info__imgbox-item">
+                        <image class="xxs-info__img" mode="aspectFill" src="http://images.pft12301.cc/123933/product/1487313422.jpeg?imageView2/1/w/150/h/90"></image>
+                    </view>
+                    <view class="xxs-info__imgbox-item">
+                        <image class="xxs-info__img" mode="aspectFill" src="http://images.12301.cc/123933/1102540509.jpg"></image>
+                    </view>
+                    <view class="xxs-info__imgbox-item">
+                        <image class="xxs-info__img" mode="aspectFill" src="http://images.12301.cc/123933/1102540509.jpg"></image>
+                    </view>
+                    <view class="xxs-info__imgbox-item">
+                        <image class="xxs-info__img" mode="aspectFill" src="http://images.12301.cc/123933/1102540509.jpg"></image>
+                    </view>
+                    <view class="xxs-info__imgbox-item">
+                        <image class="xxs-info__img" mode="aspectFill" src="http://images.12301.cc/123933/1102540509.jpg"></image>
+                    </view>
+                    <view class="xxs-info__imgbox-item">
+                        <image class="xxs-info__img" mode="aspectFill" src="http://images.12301.cc/123933/1102540509.jpg"></image>
+                    </view>
+                    <view class="xxs-info__imgbox-item">
+                        <image class="xxs-info__img" mode="aspectFill" src="http://images.12301.cc/123933/1102540509.jpg"></image>
+                    </view>
+                    <view class="xxs-info__imgbox-item">
+                        <image class="xxs-info__img" mode="aspectFill" src="http://images.12301.cc/123933/1102540509.jpg"></image>
+                    </view>
+                    <view class="xxs-info__imgbox-item">
+                        <image class="xxs-info__img" mode="aspectFill" src="http://images.12301.cc/123933/1102540509.jpg"></image>
+                    </view>
+
+
+                </view>
+
+                <!-- 地址行 -->
+                <view class="xxs-info__address zan-font-12 zan-c-gray-darker">
+                    <icon class="iconfont icon-dizhi zan-font-12-i xxs-info__address-icon"></icon>
+                    <text>福州市仓山区农民新苑</text>
+                </view>
+
+                <!-- 时间按钮行 -->
+                <view class="xxs-info__timebtnline ">
+                    <view class="zan-c-gray-dark zan-font-12">昨天19:00</view>
+                    <view class="zan-c-gray-dark">
+                        <view class="zan-inline-block zan-margin-right-10">
+                            <!-- <icon class="iconfont icon-zansel zan-font-18-i"></icon> -->
+                            <text class="zan-font-12 ">2.5k查看</text>
+                        </view>
+                        <view class="zan-inline-block zan-margin-right-10">
+                            <!-- <icon class="iconfont icon-zansel zan-font-18-i"></icon> -->
+                            <text class="zan-font-12 ">20赞同</text>
+                        </view>
+                        <view class="zan-inline-block">
+                            <!-- <icon class="iconfont icon-comment zan-font-18-i"></icon> -->
+                            <text class="zan-font-12 ">20评论</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <slot></slot>
+
+</view>

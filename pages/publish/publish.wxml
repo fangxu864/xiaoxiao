@@ -1,0 +1,75 @@
+<import src="../../dist/toast/index.wxml" />
+
+<view class="container">
+
+    <!-- 内容文本 -->
+    <view class="zan-panel-noborder">
+        <textarea maxlength="500" placeholder="请输入要发布的内容" bindblur="contentBlur" value="{{content}}" class="content-textarea zan-font-14"></textarea>
+    </view>
+
+    <!-- 图片 -->
+    <view class="zan-panel-title">长按图片可移除</view>
+    <view class="zan-panel-noborder zan-paddiing-15">
+        <view class="weui-uploader">
+            <view class="weui-uploader__bd">
+                <view class="weui-uploader__files" id="uploaderFiles">
+                    <block wx:for="{{files}}" wx:key="*this">
+                        <view class="weui-uploader__file" bindtap="previewImage" bindlongpress="imgOnLongTap" id="{{item}}">
+                            <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                        </view>
+                    </block>
+                </view>
+                <view class="weui-uploader__input-box" wx:if="{{files.length < 9}}">
+                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 表单 -->
+    <view class="zan-panel">
+        <view class="zan-cell zan-cell--access zan-active-gray" bindtap="tapChooseLocation">
+            <view class="zan-cell__hd">地址</view>
+            <view class="zan-cell__bd zan-ellipsis">{{address}}</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+        <view class="zan-cell zan-form__item">
+            <text class="zan-form__title">手机</text>
+            <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" type="number" maxlength="11" placeholder="请填写手机号" />
+        </view>
+        <view class="zan-cell zan-cell--access zan-active-gray" bindtap="toggleDialog">
+            <view class="zan-cell__hd">标签</view>
+            <view class="zan-cell__bd">{{tagName}}</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+    </view>
+
+    <!-- 按钮 -->
+    <view class="zan-panel-noborder zan-paddiing-15">
+        <button class="zan-btn zan-btn--primary" bindtap="publish">确认发布</button>
+    </view>
+
+    <!-- 标签弹框 -->
+    <view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+        <view class="zan-dialog__mask" bindtap="toggleDialog" />
+        <view class="zan-dialog__container">
+
+            <scroll-view scroll-y="true" class="tag-container">
+                <view class="zan-panel-title">请选择与发布信息对应的标签</view>
+
+                <view class="zan-panel" bindtap="onTagListTap">
+                    <block wx:for="{{tagList}}" wx:key="*this">
+                        <view class="zan-cell zan-active-gray" data-tagname="{{item}}">
+                            <view class="zan-cell__bd" data-tagname="{{item}}">{{item}}</view>
+                        </view>
+                    </block>
+                </view>
+
+            </scroll-view>
+        </view>
+    </view>
+
+
+</view>
+
+<template is="zan-toast" data="{{ zanToast }}"></template>

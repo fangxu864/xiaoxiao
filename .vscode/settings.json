@@ -1,0 +1,46 @@
+{
+    "editor.fontSize": 20,
+    "files.associations": {
+        "*.xtpl" : "html" ,
+        "*.scss" : "scss" ,
+        "*.tpl" : "html" ,
+        "*.wxml" : "html" ,
+        "*.wxss" : "css" 
+    },
+    "editor.fontFamily": " 'Courier New',Consolas, monospace",
+    "editor.folding": true,
+    "window.zoomLevel": 0,
+    "git.enableSmartCommit": true,
+    "workbench.colorTheme": "Monokai",
+    "files.autoSave": "off",
+    "workbench.iconTheme": "vs-seti",
+    "php.validate.executablePath": "E:/php-7.1.7/php.exe",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/node_modules/": true
+    },
+    "colorize.languages": [
+        "css",
+        "sass",
+        "scss",
+        "less",
+        "postcss",
+        "sss",
+        "stylus",
+        "xml",
+        "svg",
+        "wxml"
+    ],
+    "colorize.activate_variables_support_beta": false,
+    "author-generator.author": "[author]",
+    "editor.formatOnType": true,
+    "workbench.editor.enablePreview": false,
+    "view-in-browser.customBrowser": "chrome",
+    "path-autocomplete.extensionOnImport": true,
+    "workbench.activityBar.visible": true,
+    "git.ignoreLimitWarning": true
+}
