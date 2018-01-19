@@ -58,20 +58,20 @@ Page(Object.assign({}, Zan.Toast, {
       params["describe"] = this.data.describe;
     }
 
-    //校验姓名
-    if (this.data.name == "") {
-      this.showZanToast("请填写收货人姓名", 1500);
-      return false;
-    } else {
-      params["name"] = this.data.name;
-    }
-
     //校验数量
     if (this.data.num == "") {
       this.showZanToast("请填写购买数量", 1500);
       return false;
     } else {
       params["num"] = this.data.num;
+    }
+
+    //校验姓名
+    if (this.data.name == "") {
+      this.showZanToast("请填写收货人姓名", 1500);
+      return false;
+    } else {
+      params["name"] = this.data.name;
     }
 
     //校验手机

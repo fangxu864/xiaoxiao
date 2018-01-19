@@ -2,15 +2,18 @@
 
 <view class="container">
 
-     <!-- 货物信息 -->
-     <view class="zan-panel">
+
+    <!-- 货物信息 -->
+    <view class="zan-panel">
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">买什么</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="describeBlur" value="{{describe}}" maxlength="60" placeholder="物品名称(如：黄瓜鱼、螃蟹)" />
+            <input class="zan-form__input zan-cell__bd" bindblur="describeBlur" value="{{describe}}" maxlength="60" placeholder="物品名称(如：黄瓜鱼、螃蟹)"
+            />
         </view>
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">买多少</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="numBlur" value="{{num}}" type="number" maxlength="20" placeholder="请填写购买数量(单位：kg)" />
+            <input class="zan-form__input zan-cell__bd" bindblur="numBlur" value="{{num}}" type="number" maxlength="20" placeholder="请填写购买数量(单位：kg)"
+            />
         </view>
     </view>
 
@@ -22,7 +25,8 @@
         </view>
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">联系电话</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" type="number" maxlength="11" placeholder="请填写联系电话" />
+            <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" type="number" maxlength="11" placeholder="请填写联系电话"
+            />
         </view>
         <!-- <view class="zan-cell zan-form__item">
             <text class="zan-form__title">选择地区</text>
@@ -36,10 +40,17 @@
         </view> -->
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">收货地址</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="addressBlur" value="{{address}}" maxlength="60" placeholder="请填写详细地址" />
+            <input class="zan-form__input zan-cell__bd" bindblur="addressBlur" value="{{address}}" maxlength="60" placeholder="请填写详细地址"
+            />
         </view>
     </view>
-   
+
+    <!-- 内容文本 -->
+    <view class="zan-panel-title">详细备注(选填)</view>
+    <view class="zan-panel-noborder">
+        <textarea maxlength="100" placeholder="请输入备注内容" bindblur="contentBlur" value="{{content}}" class="content-textarea zan-font-14"></textarea>
+    </view>
+
 
     <!-- 按钮 -->
     <view class="zan-panel-noborder zan-paddiing-15">
