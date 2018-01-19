@@ -48,3 +48,4 @@
 
 </view>
 
+<template is="zan-toast" data="{{ zanToast }}"></template>

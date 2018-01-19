@@ -13,7 +13,6 @@ Page(Object.assign({}, Zan.Toast, {
   },
 
   onShow: function () {
-
   },
 
   numBlur: function (e) {
@@ -53,7 +52,6 @@ Page(Object.assign({}, Zan.Toast, {
 
     //校验下单描述
     if (this.data.describe == "") {
-      console.log(1212121212)
       this.showZanToast("买什么不能为空", 1500);
       return false;
     } else {
