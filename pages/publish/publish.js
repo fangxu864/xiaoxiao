@@ -52,7 +52,7 @@ Page(Object.assign({}, Zan.Toast, {
 
     //校验下单描述
     if (this.data.describe == "") {
-      this.showZanToast("买什么不能为空", 1500);
+      this.showZanToast("请填写您要购买的物品", 1500);
       return false;
     } else {
       params["describe"] = this.data.describe;
@@ -60,7 +60,7 @@ Page(Object.assign({}, Zan.Toast, {
 
     //校验姓名
     if (this.data.name == "") {
-      this.showZanToast("姓名不能为空", 1500);
+      this.showZanToast("请填写收货人姓名", 1500);
       return false;
     } else {
       params["name"] = this.data.name;
@@ -68,7 +68,7 @@ Page(Object.assign({}, Zan.Toast, {
 
     //校验数量
     if (this.data.num == "") {
-      this.showZanToast("数量不能为空", 1500);
+      this.showZanToast("请填写购买数量", 1500);
       return false;
     } else {
       params["num"] = this.data.num;
@@ -84,7 +84,7 @@ Page(Object.assign({}, Zan.Toast, {
 
     //校验地址
     if (this.data.address == "") {
-      this.showZanToast("地址不能为空", 1500);
+      this.showZanToast("请填写收货地址", 1500);
       return false;
     } else {
       params["address"] = this.data.address;

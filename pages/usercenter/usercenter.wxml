@@ -11,16 +11,16 @@
         </view>
     </view>
     
-    <!-- <view class="zan-panel">
-        <view class="zan-cell zan-cell--access zan-active-gray" bindtap="uploadImg"> 
+    <view class="zan-panel">
+        <!-- <view class="zan-cell zan-cell--access zan-active-gray" bindtap="uploadImg"> 
             <view class="zan-cell__bd">管理收货地址</view>
             <view class="zan-cell__ft"></view>
-        </view>
+        </view> -->
         <view class="zan-cell zan-cell--access zan-active-gray">
             <view class="zan-cell__bd">我的订单</view>
             <view class="zan-cell__ft"></view>
         </view>
-    </view> -->
+    </view>
 
 
     <view class="zan-panel">
