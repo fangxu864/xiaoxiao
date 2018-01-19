@@ -1,16 +1,18 @@
 <view class="container">
     <view class="zan-panel">
-        <view class="zan-cell zan-cell--access zan-active-gray">
-            <view class="zan-cell__bd">
-                <image class="user-img" src="{{avatar_url}}"></image>
-                <text class="user-name">{{nick_name}}</text>
+        <navigator url="../edit/edit">
+            <view class="zan-cell zan-cell--access zan-active-gray">
+                <view class="zan-cell__bd">
+                    <image class="user-img" src="{{avatar_url}}"></image>
+                    <text class="user-name">{{nick_name}}</text>
+                </view>
+                <view class="zan-cell__ft">
+                    编辑
+                </view>
             </view>
-            <view class="zan-cell__ft">
-                    <navigator url="../edit/edit">编辑</navigator>
-            </view>
-        </view>
+        </navigator>
     </view>
-    
+
     <view class="zan-panel">
         <!-- <view class="zan-cell zan-cell--access zan-active-gray" bindtap="uploadImg"> 
             <view class="zan-cell__bd">管理收货地址</view>
