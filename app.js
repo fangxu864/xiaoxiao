@@ -20,7 +20,7 @@ App({
   },
 
   /**
-   * 登录微信，用code换取session_key
+   * 登录微信，用code换取sessionKey
    * 
    * @param {any} callback 登录后的回调
    */
@@ -43,12 +43,12 @@ App({
               code: res.code
             },
             success: function (res) {
-              console.log("res",res)
+              console.log(res);
               if (res.statusCode == 200 && res.data.code == 200) {
-                console.log("session_key返回：", res.data.data.session_key);
-                //设置session_key
-                wx.setStorageSync(_this.SESSION_STORAGE_KEY, res.data.data.session_key);
-                console.log("localStorage成功设置session_key");
+                console.log("sessionKey返回：", res.data.data.sessionKey);
+                //设置sessionKey
+                wx.setStorageSync(_this.SESSION_STORAGE_KEY, res.data.data.sessionKey);
+                console.log("localStorage成功设置sessionKey");
                 //调用回调
                 callback();
               }
@@ -124,7 +124,7 @@ App({
       var _res = res.data;
       var statusCode = res.statusCode;
       if (statusCode == 200) {
-        //205代表用户没登录，在redis里取不到session_key对应的信息
+        //205代表用户没登录，在redis里取不到sessionKey对应的信息
         if (_res.code == 205) {
           reLogin();
         } else {
