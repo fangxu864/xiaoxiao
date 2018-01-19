@@ -159,7 +159,7 @@ App({
         success: function () {
           //session 未过期，并且在本生命周期一直有效
           let sessionKey = wx.getStorageSync(_this.SESSION_STORAGE_KEY);
-          newOpt["header"]["session-key-xxs"] = sessionKey;
+          newOpt["header"]["session-key"] = sessionKey;
           newOpt.loading();
           wx.request(newOpt);
         },
@@ -174,7 +174,7 @@ App({
     function reLogin() {
       _this.login(function () {
         let sessionKey = wx.getStorageSync(_this.SESSION_STORAGE_KEY);
-        newOpt["header"]["session-key-xxs"] = sessionKey;
+        newOpt["header"]["session-key"] = sessionKey;
         //此处的定时是为了de腾讯的bug,不然loading不显示
         setTimeout(function () {
           newOpt.loading();
