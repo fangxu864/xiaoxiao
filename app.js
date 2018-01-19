@@ -1,7 +1,7 @@
 App({
 
   appId: "",
-  REQUEST_HOST: "http://blog.quanmingpian.com",
+  REQUEST_HOST: "https://blog.quanmingpian.com",
   SESSION_STORAGE_KEY: "xxs-session-storage",
   SERVER_ERROR_TEXT: "服务器未成功处理请求",
 
@@ -10,7 +10,7 @@ App({
    * 
    */
   alert: function (msg) {
-    if (!msg) return false; 
+    if (!msg) return false;
     wx.showModal({
       title: '提示',
       content: msg,
@@ -30,6 +30,7 @@ App({
     var callback = callback || new Function();
     wx.login({
       success: function (res) {
+       
         if (res.code) {
           wx.showLoading({
             title: "登录中.."
@@ -42,6 +43,7 @@ App({
               code: res.code
             },
             success: function (res) {
+              console.log("res",res)
               if (res.statusCode == 200 && res.data.code == 200) {
                 console.log("session_key返回：", res.data.data.session_key);
                 //设置session_key
@@ -179,6 +181,7 @@ App({
           wx.request(newOpt);
         }, 20)
       })
+
     }
 
   }
