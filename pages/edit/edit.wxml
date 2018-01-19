@@ -29,27 +29,7 @@
 
     <!-- 按钮 -->
     <view class="zan-panel-noborder zan-paddiing-15">
-        <button class="zan-btn zan-btn--primary" bindtap="publish">保存</button>
-    </view>
-
-    <!-- 标签弹框 -->
-    <view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
-        <view class="zan-dialog__mask" bindtap="toggleDialog" />
-        <view class="zan-dialog__container">
-
-            <scroll-view scroll-y="true" class="tag-container">
-                <view class="zan-panel-title">请选择与发布信息对应的标签</view>
-
-                <view class="zan-panel" bindtap="onTagListTap">
-                    <block wx:for="{{tagList}}" wx:key="*this">
-                        <view class="zan-cell zan-active-gray" data-tagname="{{item}}">
-                            <view class="zan-cell__bd" data-tagname="{{item}}">{{item}}</view>
-                        </view>
-                    </block>
-                </view>
-
-            </scroll-view>
-        </view>
+        <button class="zan-btn zan-btn--primary" bindtap="wxLogin">保存</button>
     </view>
 
 
