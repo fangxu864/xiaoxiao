@@ -108,7 +108,7 @@ Page(Object.assign({}, Zan.Toast, {
         if (res.code == 200) {
           
           Common.alert("下单成功,稍后我们会联系您");
-          this.setData({
+          _this.setData({
             num: "", //数量 
             name: "", //下单人姓名
             address: "", //收货地址
@@ -117,7 +117,7 @@ Page(Object.assign({}, Zan.Toast, {
           })
 
         } else {
-          Common.alert(res.msg || "编辑失败");
+          Common.alert(res.msg || "提交订单失败，请重试");
         }
       },
       fail: function (err) {

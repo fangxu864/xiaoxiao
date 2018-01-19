@@ -6,11 +6,11 @@
      <view class="zan-panel">
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">买什么</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="describeBlur" value="{{describe}}" maxlength="11" placeholder="请填写物品名称" />
+            <input class="zan-form__input zan-cell__bd" bindblur="describeBlur" value="{{describe}}" maxlength="60" placeholder="物品名称(如：黄瓜鱼、螃蟹)" />
         </view>
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">买多少</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="numBlur" value="{{num}}" type="number" maxlength="11" placeholder="请填写购买数量" />
+            <input class="zan-form__input zan-cell__bd" bindblur="numBlur" value="{{num}}" type="number" maxlength="20" placeholder="请填写购买数量(单位：kg)" />
         </view>
     </view>
 
@@ -18,7 +18,7 @@
     <view class="zan-panel">
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">收货人</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="nameBlur" value="{{name}}" maxlength="11" placeholder="请填收货人姓名" />
+            <input class="zan-form__input zan-cell__bd" bindblur="nameBlur" value="{{name}}" maxlength="10" placeholder="请填收货人姓名" />
         </view>
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">联系电话</text>
@@ -36,7 +36,7 @@
         </view> -->
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">收货地址</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="addressBlur" value="{{address}}" maxlength="11" placeholder="请填写详细地址" />
+            <input class="zan-form__input zan-cell__bd" bindblur="addressBlur" value="{{address}}" maxlength="60" placeholder="请填写详细地址" />
         </view>
     </view>
    
