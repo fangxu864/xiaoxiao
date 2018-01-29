@@ -1,5 +1,6 @@
 {
   "pages":[
+		"pages/product/product",
     "pages/publish/publish",
     "pages/usercenter/usercenter",
     "pages/edit/edit"
@@ -17,6 +18,12 @@
     "backgroundColor": "#fafafa",
     "borderStyle":"black",
 		"list": [
+			{
+				"pagePath": "pages/product/product",
+				"iconPath": "image/faxian.png",
+				"selectedIconPath": "image/faxian-active.png",
+				"text": "发现"
+			},
 			{
 				"pagePath": "pages/publish/publish",
 				"iconPath": "image/fabu.png",

@@ -38,7 +38,7 @@
     "colorize.activate_variables_support_beta": false,
     "author-generator.author": "[author]",
     "editor.formatOnType": true,
-    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreview": true,
     "view-in-browser.customBrowser": "chrome",
     "path-autocomplete.extensionOnImport": true,
     "workbench.activityBar.visible": true,

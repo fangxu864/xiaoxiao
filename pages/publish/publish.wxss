@@ -5,6 +5,10 @@
     height: 100px;
     line-height: 20px;
 }
+.textarea-box{
+    background-color: #fff;
+}
+
 
 /* .tag-container{
     max-height: 300px;

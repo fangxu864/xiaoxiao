@@ -10,11 +10,13 @@
         </view>
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">昵称</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="nickNameBlur" value="{{nick_name}}"  maxlength="11" placeholder="请填写昵称" />
+            <input class="zan-form__input zan-cell__bd" bindblur="nickNameBlur" value="{{nick_name}}" maxlength="11" placeholder="请填写昵称"
+            />
         </view>
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">手机</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" type="number" maxlength="11" placeholder="请填写联系电话" />
+            <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" type="number" maxlength="11" placeholder="请填写联系电话"
+            />
         </view>
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">地址</text>
@@ -22,14 +24,17 @@
         </view>
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">身份证</text>
-            <input class="zan-form__input zan-cell__bd" bindblur="idCardBlur" type="idcard" value="{{id_card}}" placeholder="请填写身份证" />
+            <input class="zan-form__input zan-cell__bd" bindblur="idCardBlur" type="idcard" value="{{id_card}}" placeholder="请填写身份证"
+            />
         </view>
     </view>
-   
+
 
     <!-- 按钮 -->
-    <view class="zan-panel-noborder zan-paddiing-15">
-        <button class="zan-btn zan-btn--primary" bindtap="setUserInfo">保存</button>
+    <view class="zan-panel">
+        <view style="padding: 15px;">
+            <button class="zan-btn zan-btn--primary" bindtap="setUserInfo">保存</button>
+        </view>
     </view>
 
 

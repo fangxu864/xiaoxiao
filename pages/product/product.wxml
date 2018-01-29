@@ -1,0 +1,102 @@
+<import src="/dist/tab/index.wxml" />
+
+<view class="container">
+  <view>
+    <template is="zan-tab" data="{{ ...tab, componentId: 'tab' }}"></template>
+  </view>
+  <scroll-view class="content-view" scroll-y bindscrolltolower="onScrollBottom">
+    <view id="select1" wx:if="{{tab.selectedId == 1}}" class="">
+
+      <block wx:if="{{list1.data.length >= 1}}">
+        <view class="pro-item zan-row" wx:for="{{list1.data}}" wx:for-item="porduct" wx:key="">
+          <view class="pro-item__lt zan-col zan-col-6">
+            <image class="pro-item__img" mode="aspectFit" src="{{porduct.images}}"></image>
+          </view>
+          <view class="pro-item__rt zan-col zan-col-18">
+            <view class="pro-item__title zan-ellipsis">{{porduct.name}}</view>
+            <view class="pro-item__desc zan-ellipsis--l2">{{porduct.description}}</view>
+            <view class="zan-row pro-item__btn-line">
+              <view class="zan-col zan-col-12 pro-item__price">￥{{porduct.price}}/kg</view>
+              <view class="zan-col zan-col-12 pro-item__okbtn">
+                <button class="zan-btn zan-btn--small zan-btn--primary" data-pid="{{porduct.id}}">加入清单</button>
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <view class="load-more">
+          <span>{{statusText[list1.status]}}</span>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="no-data">
+          暂时还没有商品哦..
+        </view>
+
+      </block>
+
+    </view>
+    <view id="select2" wx:if="{{tab.selectedId == 2}}" class="">
+
+      <block wx:if="{{list2.data.length >= 1}}">
+        <view class="pro-item zan-row" wx:for="{{list1.data}}" wx:for-item="porduct" wx:key="">
+          <view class="pro-item__lt zan-col zan-col-6">
+            <image class="pro-item__img" mode="aspectFit" src="{{porduct.images}}"></image>
+          </view>
+          <view class="pro-item__rt zan-col zan-col-18">
+            <view class="pro-item__title zan-ellipsis">{{porduct.name}}</view>
+            <view class="pro-item__desc zan-ellipsis--l2">{{porduct.description}}</view>
+            <view class="zan-row pro-item__btn-line">
+              <view class="zan-col zan-col-12 pro-item__price">￥{{porduct.price}}/kg</view>
+              <view class="zan-col zan-col-12 pro-item__okbtn">
+                <button class="zan-btn zan-btn--small zan-btn--primary" data-pid="{{porduct.id}}">加入清单</button>
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <view class="load-more">
+          <span>{{statusText[list2.status]}}</span>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="no-data">
+          暂时还没有商品哦..
+        </view>
+
+      </block>
+
+    </view>
+    <view id="select3" wx:if="{{tab.selectedId == 3}}" class="">
+
+      <block wx:if="{{list3.data.length >= 1}}">
+        <view class="pro-item zan-row" wx:for="{{list1.data}}" wx:for-item="porduct" wx:key="">
+          <view class="pro-item__lt zan-col zan-col-6">
+            <image class="pro-item__img" mode="aspectFit" src="{{porduct.images}}"></image>
+          </view>
+          <view class="pro-item__rt zan-col zan-col-18">
+            <view class="pro-item__title zan-ellipsis">{{porduct.name}}</view>
+            <view class="pro-item__desc zan-ellipsis--l2">{{porduct.description}}</view>
+            <view class="zan-row pro-item__btn-line">
+              <view class="zan-col zan-col-12 pro-item__price">￥{{porduct.price}}/kg</view>
+              <view class="zan-col zan-col-12 pro-item__okbtn">
+                <button class="zan-btn zan-btn--small zan-btn--primary" data-pid="{{porduct.id}}">加入清单</button>
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <view class="load-more">
+          <span>{{statusText[list3.status]}}</span>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="no-data">
+          暂时还没有商品哦..
+        </view>
+
+      </block>
+
+    </view>
+  </scroll-view>
+</view>
