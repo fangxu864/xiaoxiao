@@ -56,6 +56,12 @@ Page(extend({}, Tab, {
 
   },
 
+  refreshPage() {
+    wx.reLaunch({
+      url: '/pages/product/product'
+    })
+  },
+
   getData(tabId) {
     var curList = "list" + tabId;
     console.log(curList);

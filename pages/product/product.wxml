@@ -4,6 +4,7 @@
   <view>
     <template is="zan-tab" data="{{ ...tab, componentId: 'tab' }}"></template>
   </view>
+  <view class="refresh-page"><span class="" bindtap="refreshPage"> 点我刷新..</span></view>
   <scroll-view class="content-view" scroll-y bindscrolltolower="onScrollBottom">
     <view id="select1" wx:if="{{tab.selectedId == 1}}" class="">
 
