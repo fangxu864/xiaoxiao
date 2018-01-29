@@ -58,6 +58,7 @@ Page(extend({}, Tab, {
 
   getData(tabId) {
     var curList = "list" + tabId;
+    console.log(curList);
     var _this = this;
     App.ajax({
       debug: false,

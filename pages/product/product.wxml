@@ -39,7 +39,7 @@
     <view id="select2" wx:if="{{tab.selectedId == 2}}" class="">
 
       <block wx:if="{{list2.data.length >= 1}}">
-        <view class="pro-item zan-row" wx:for="{{list1.data}}" wx:for-item="porduct" wx:key="">
+        <view class="pro-item zan-row" wx:for="{{list2.data}}" wx:for-item="porduct" wx:key="">
           <view class="pro-item__lt zan-col zan-col-6">
             <image class="pro-item__img" mode="aspectFit" src="{{porduct.images}}"></image>
           </view>
@@ -70,7 +70,7 @@
     <view id="select3" wx:if="{{tab.selectedId == 3}}" class="">
 
       <block wx:if="{{list3.data.length >= 1}}">
-        <view class="pro-item zan-row" wx:for="{{list1.data}}" wx:for-item="porduct" wx:key="">
+        <view class="pro-item zan-row" wx:for="{{list3.data}}" wx:for-item="porduct" wx:key="">
           <view class="pro-item__lt zan-col zan-col-6">
             <image class="pro-item__img" mode="aspectFit" src="{{porduct.images}}"></image>
           </view>
