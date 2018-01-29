@@ -10,7 +10,7 @@
       <block wx:if="{{list1.data.length >= 1}}">
         <view class="pro-item zan-row" wx:for="{{list1.data}}" wx:for-item="porduct" wx:key="">
           <view class="pro-item__lt zan-col zan-col-6">
-            <image class="pro-item__img" mode="aspectFit" src="{{porduct.images}}"></image>
+            <image lazy-load="true" class="pro-item__img" mode="aspectFit" src="{{porduct.images}}"></image>
           </view>
           <view class="pro-item__rt zan-col zan-col-18">
             <view class="pro-item__title zan-ellipsis">{{porduct.name}}</view>
@@ -41,7 +41,7 @@
       <block wx:if="{{list2.data.length >= 1}}">
         <view class="pro-item zan-row" wx:for="{{list2.data}}" wx:for-item="porduct" wx:key="">
           <view class="pro-item__lt zan-col zan-col-6">
-            <image class="pro-item__img" mode="aspectFit" src="{{porduct.images}}"></image>
+            <image lazy-load="true" class="pro-item__img" mode="aspectFit" src="{{porduct.images}}"></image>
           </view>
           <view class="pro-item__rt zan-col zan-col-18">
             <view class="pro-item__title zan-ellipsis">{{porduct.name}}</view>
@@ -72,7 +72,7 @@
       <block wx:if="{{list3.data.length >= 1}}">
         <view class="pro-item zan-row" wx:for="{{list3.data}}" wx:for-item="porduct" wx:key="">
           <view class="pro-item__lt zan-col zan-col-6">
-            <image class="pro-item__img" mode="aspectFit" src="{{porduct.images}}"></image>
+            <image lazy-load="true" class="pro-item__img" mode="aspectFit" src="{{porduct.images}}"></image>
           </view>
           <view class="pro-item__rt zan-col zan-col-18">
             <view class="pro-item__title zan-ellipsis">{{porduct.name}}</view>
