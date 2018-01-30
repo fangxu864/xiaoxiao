@@ -90,6 +90,7 @@ Page(extend({}, Tab, {
           _this.setData({
             [`${curList}.data`]: _this.data[curList].data.concat(res.data.list),
           });
+          
           _this.setData({
             [`${curList}.page`]: Number(_this.data[curList].page) + 1,
           });
