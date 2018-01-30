@@ -8,6 +8,9 @@
 .textarea-box{
     background-color: #fff;
 }
+.zan-panel-noborder{
+    background-color: #fff;
+}
 
 
 /* .tag-container{
