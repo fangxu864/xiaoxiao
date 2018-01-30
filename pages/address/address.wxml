@@ -1,0 +1,80 @@
+<view class="container">
+
+    <view class="zan-panel">
+        <view class="addr-item">
+            <view class="zan-row addr-item__first">
+                <view class="zan-col zan-col-16">刘大哥</view>
+                <view class="zan-col zan-col-8 addr-item__opt-rt">15659329937</view>
+            </view>
+            <view class="addr-item__detail">河南省光山县南向店乡长冲村方洼</view>
+            <view class="zan-row addr-item__opt-line">
+                <view class="zan-col zan-col-12">
+                    <icon class="icon-yigouxuan iconfont"></icon>
+                    <text class="btn-text">默认</text>
+                </view>
+                <view class="zan-col zan-col-6 addr-item__opt-rt">
+                    <icon class="icon-bainji iconfont"></icon>
+                    <text class="btn-text">编辑</text>
+                </view>
+                <view class="zan-col zan-col-6 addr-item__opt-rt">
+                    <icon class="icon-shanchu iconfont"></icon>
+                    <text class="btn-text">删除</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="zan-panel">
+        <view class="addr-item">
+            <view class="zan-row addr-item__first">
+                <view class="zan-col zan-col-16">刘大哥</view>
+                <view class="zan-col zan-col-8 addr-item__opt-rt">15659329937</view>
+            </view>
+            <view class="addr-item__detail">河南省光山县南向店乡长冲村方洼</view>
+            <view class="zan-row addr-item__opt-line">
+                <view class="zan-col zan-col-12">
+                    <icon class="icon-weigouxuan iconfont"></icon>
+                    <text class="btn-text">默认</text>
+                </view>
+                <view class="zan-col zan-col-6 addr-item__opt-rt">
+                    <icon class="icon-bainji iconfont"></icon>
+                    <text class="btn-text">编辑</text>
+                </view>
+                <view class="zan-col zan-col-6 addr-item__opt-rt">
+                    <icon class="icon-shanchu iconfont"></icon>
+                    <text class="btn-text">删除</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="zan-panel">
+        <view class="addr-item">
+            <view class="zan-row addr-item__first">
+                <view class="zan-col zan-col-16">刘大哥</view>
+                <view class="zan-col zan-col-8 addr-item__opt-rt">15659329937</view>
+            </view>
+            <view class="addr-item__detail">河南省光山县南向店乡长冲村方洼</view>
+            <view class="zan-row addr-item__opt-line">
+                <view class="zan-col zan-col-12">
+                    <icon class="icon-weigouxuan iconfont"></icon>
+                    <text class="btn-text">默认</text>
+                </view>
+                <view class="zan-col zan-col-6 addr-item__opt-rt">
+                    <icon class="icon-bainji iconfont"></icon>
+                    <text class="btn-text">编辑</text>
+                </view>
+                <view class="zan-col zan-col-6 addr-item__opt-rt">
+                    <icon class="icon-shanchu iconfont"></icon>
+                    <text class="btn-text">删除</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="zan-panel">
+        <view style="padding: 15px;">
+            <button class="zan-btn zan-btn--warn" bindtap="submitOrder">添加地址</button>
+        </view>
+
+    </view>
+
+</view>

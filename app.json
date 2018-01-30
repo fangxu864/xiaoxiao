@@ -3,7 +3,8 @@
 		"pages/product/product",
     "pages/publish/publish",
     "pages/usercenter/usercenter",
-    "pages/edit/edit"
+    "pages/edit/edit",
+    "pages/address/address"
   ],
   "window":{
     "navigationBarBackgroundColor": "#393a3e",
