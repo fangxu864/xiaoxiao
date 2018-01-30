@@ -46,19 +46,10 @@
     </view>
 
     <!-- 内容文本 -->
-<<<<<<< HEAD
-    <view class="zan-panel-title">详细备注(选填)</view>
-    <view class="zan-panel">
-
-        <textarea maxlength="100" placeholder="请输入备注内容" bindblur="contentBlur" value="{{content}}" class="content-textarea zan-font-14"></textarea>
-
-    </view>
-=======
     <!-- <view class="zan-panel-title">详细备注(选填)</view>
     <view class="zan-panel-noborder">
         <textarea maxlength="100" placeholder="请输入备注内容" bindblur="contentBlur" value="{{content}}" class="content-textarea zan-font-14"></textarea>
     </view> -->
->>>>>>> 02911054f13fca0bf407460c64eac561491adda6
 
 
     <!-- 按钮 -->
