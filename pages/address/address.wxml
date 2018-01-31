@@ -1,80 +1,75 @@
+<import src="../../dist/toast/index.wxml" />
 <view class="container">
 
-    <view class="zan-panel">
-        <view class="addr-item">
-            <view class="zan-row addr-item__first">
-                <view class="zan-col zan-col-16">刘大哥</view>
-                <view class="zan-col zan-col-8 addr-item__opt-rt">15659329937</view>
-            </view>
-            <view class="addr-item__detail">河南省光山县南向店乡长冲村方洼</view>
-            <view class="zan-row addr-item__opt-line">
-                <view class="zan-col zan-col-12">
-                    <icon class="icon-yigouxuan iconfont"></icon>
-                    <text class="btn-text">默认</text>
-                </view>
-                <view class="zan-col zan-col-6 addr-item__opt-rt">
-                    <icon class="icon-bainji iconfont"></icon>
-                    <text class="btn-text">编辑</text>
-                </view>
-                <view class="zan-col zan-col-6 addr-item__opt-rt">
-                    <icon class="icon-shanchu iconfont"></icon>
-                    <text class="btn-text">删除</text>
-                </view>
-            </view>
-        </view>
-    </view>
-    <view class="zan-panel">
-        <view class="addr-item">
-            <view class="zan-row addr-item__first">
-                <view class="zan-col zan-col-16">刘大哥</view>
-                <view class="zan-col zan-col-8 addr-item__opt-rt">15659329937</view>
-            </view>
-            <view class="addr-item__detail">河南省光山县南向店乡长冲村方洼</view>
-            <view class="zan-row addr-item__opt-line">
-                <view class="zan-col zan-col-12">
-                    <icon class="icon-weigouxuan iconfont"></icon>
-                    <text class="btn-text">默认</text>
-                </view>
-                <view class="zan-col zan-col-6 addr-item__opt-rt">
-                    <icon class="icon-bainji iconfont"></icon>
-                    <text class="btn-text">编辑</text>
-                </view>
-                <view class="zan-col zan-col-6 addr-item__opt-rt">
-                    <icon class="icon-shanchu iconfont"></icon>
-                    <text class="btn-text">删除</text>
-                </view>
-            </view>
-        </view>
-    </view>
-    <view class="zan-panel">
-        <view class="addr-item">
-            <view class="zan-row addr-item__first">
-                <view class="zan-col zan-col-16">刘大哥</view>
-                <view class="zan-col zan-col-8 addr-item__opt-rt">15659329937</view>
-            </view>
-            <view class="addr-item__detail">河南省光山县南向店乡长冲村方洼</view>
-            <view class="zan-row addr-item__opt-line">
-                <view class="zan-col zan-col-12">
-                    <icon class="icon-weigouxuan iconfont"></icon>
-                    <text class="btn-text">默认</text>
-                </view>
-                <view class="zan-col zan-col-6 addr-item__opt-rt">
-                    <icon class="icon-bainji iconfont"></icon>
-                    <text class="btn-text">编辑</text>
-                </view>
-                <view class="zan-col zan-col-6 addr-item__opt-rt">
-                    <icon class="icon-shanchu iconfont"></icon>
-                    <text class="btn-text">删除</text>
-                </view>
-            </view>
-        </view>
-    </view>
 
-    <view class="zan-panel">
+    <block wx:if="{{addrArr.length > 0}}">
+        <view class="zan-panel" wx:for="{{addrArr}}" wx:for-item="item" wx:for-index="index">
+            <view class="addr-item">
+                <view class="zan-row addr-item__first">
+                    <view class="zan-col zan-col-16">{{item.name}}</view>
+                    <view class="zan-col zan-col-8 addr-item__opt-rt">{{item.mobile}}</view>
+                </view>
+                <view class="addr-item__detail">地址：{{item.address}}</view>
+                <view class="addr-item__detail">邮编：{{item.code}}</view>
+                <view class="zan-row addr-item__opt-line">
+                    <view class="zan-col zan-col-12"  catchtap="setDefault" data-index="{{index}}">
+                        <icon class="{{item.is_default == 1 ? 'icon-yigouxuan' : 'icon-weigouxuan' }} iconfont"></icon>
+                        <text class="btn-text">默认</text>
+                    </view>
+                    <view class="zan-col zan-col-6 addr-item__opt-rt" catchtap="editAddr" data-index="{{index}}">
+                        <icon class="icon-bainji iconfont"></icon>
+                        <text class="btn-text">编辑</text>
+                    </view>
+                    <view class="zan-col zan-col-6 addr-item__opt-rt" catchtap="deleteAddr" data-index="{{item.id}}">
+                        <icon class="icon-shanchu iconfont"></icon>
+                        <text class="btn-text" >删除</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="zan-panel">
+            <view class="no-data">
+                您还没有添加收货地址，快快添加一个吧~
+            </view>
+        </view>
+    </block>
+
+    <view class="zan-panel" wx:if="{{addrArr.length < 6}}">
         <view style="padding: 15px;">
-            <button class="zan-btn zan-btn--warn" bindtap="submitOrder">添加地址</button>
+            <button class="zan-btn zan-btn--warn" bindtap="addArr">添加地址</button>
         </view>
+    </view>
 
+    <view class="popup-example--bottom zan-popup zan-popup--bottom {{ showBottomPopup ? 'zan-popup--show' : ''}}">
+        <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
+        <view class="zan-popup__container">
+            <view class="zan-cell zan-form__item">
+                <text class="zan-form__title">收货人</text>
+                <input class="zan-form__input zan-cell__bd" bindblur="nameBlur" value="{{user_name}}" maxlength="10" placeholder="请填收货人姓名"
+                />
+            </view>
+            <view class="zan-cell zan-form__item">
+                <text class="zan-form__title">联系电话</text>
+                <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" type="number" maxlength="11" placeholder="请填写联系电话"
+                />
+            </view>
+            <view class="zan-cell zan-form__item">
+                <text class="zan-form__title">收货地址</text>
+                <input class="zan-form__input zan-cell__bd" bindblur="addressBlur" value="{{address}}" maxlength="60" placeholder="请填写详细地址"
+                />
+            </view>
+            <view class="zan-cell zan-form__item">
+                <text class="zan-form__title">邮编</text>
+                <input class="zan-form__input zan-cell__bd" bindblur="codeBlur" value="{{code}}" type="number" maxlength="6" placeholder="请填写邮政编码"
+                />
+            </view>
+            <view class="zan-btns">
+                <button class="zan-btn zan-btn--primary" catchtap="saveAddr">保存</button>
+            </view>
+        </view>
     </view>
 
 </view>
+<template is="zan-toast" data="{{ zanToast }}"></template>

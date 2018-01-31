@@ -52,13 +52,22 @@ Page(extend({}, Tab, {
   },
 
   onLoad: function () {
+    console.log(1212);
     this.getData(1)
-
   },
 
   refreshPage() {
     wx.reLaunch({
       url: '/pages/product/product'
+    })
+  },
+
+  onOrder(e) {
+    console.log(e.currentTarget.dataset);
+    App.curProductName = e.currentTarget.dataset.name;
+    App.curProductPid = e.currentTarget.dataset.pid;
+    wx.switchTab({
+      url: '/pages/publish/publish'
     })
   },
 

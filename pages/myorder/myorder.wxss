@@ -1,0 +1,27 @@
+.order-item {
+    padding: 10px 15px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #606266;
+}
+
+.order-item__ordernum-line {
+    border-bottom: 1rpx solid #e5e5e5;
+    line-height: 30px;
+}
+
+.order-item__time {
+    text-align: right;
+}
+
+.color-main {
+    color: #303133;
+}
+
+.color-plain {
+    color: #909399
+}
+
+.color-warn {
+    color: #E6A23C
+}

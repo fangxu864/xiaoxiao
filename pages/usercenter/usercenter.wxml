@@ -23,7 +23,7 @@
     </view>
 
     <view class="zan-panel">
-        <navigator url="/pages/address/address">
+        <navigator url="/pages/myorder/myorder">
             <view class="zan-cell zan-cell--access zan-active-gray">
                 <view class="zan-cell__bd">我的订单</view>
                 <view class="zan-cell__ft"></view>
@@ -33,10 +33,10 @@
 
 
     <view class="zan-panel">
-        <view class="zan-cell zan-active-gray" catchtap="updateUserInfo">
+        <!-- <view class="zan-cell zan-active-gray" catchtap="updateUserInfo">
             <view class="zan-cell__bd zan-font-14 zan-font-bold">同步微信信息</view>
             <view class="zan-cell__ft"></view>
-        </view>
+        </view> -->
         <view class="zan-cell zan-active-gray" catchtap="authSet">
             <view class="zan-cell__bd zan-font-14 zan-font-bold">授权设置</view>
             <view class="zan-cell__ft"></view>

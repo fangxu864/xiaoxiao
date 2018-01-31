@@ -13,7 +13,53 @@ Page(Object.assign({}, Zan.Toast, {
   },
 
   onShow: function () {
+    this.setData({
+      describe: App.curProductName
+    })
+    this.getAddrData();
   },
+
+  getAddrData() {
+
+    var _this = this;
+
+    App.ajax({
+      debug: false,
+      url: "/Home/SmallApp/getAddress",
+      data: {},
+      header: {},
+      method: "POST",
+      dataType: "json",
+      loading: function () {
+        wx.showLoading({
+          title: "加载中.."
+        })
+      },
+      success: function (res) {
+        if (res.code == 200) {
+
+          var addr = res.data[0];
+
+          _this.setData({
+            name: addr.name, //下单人姓名
+            address: addr.address, //收货地址
+            mobile: addr.mobile, //手机号
+          })
+        } else {
+          // Common.alert(res.msg || "提交订单失败，请重试");
+        }
+      },
+      fail: function (err) {
+        Common.alert(JSON.stringify(err))
+      },
+      complete: function (res) {
+        console.log(res);
+        wx.hideLoading()
+      }
+
+    });
+  },
+
 
   numBlur: function (e) {
     this.setData({
@@ -106,7 +152,7 @@ Page(Object.assign({}, Zan.Toast, {
       },
       success: function (res) {
         if (res.code == 200) {
-          
+
           Common.alert("下单成功,稍后我们会联系您");
           _this.setData({
             num: "", //数量 
@@ -115,6 +161,8 @@ Page(Object.assign({}, Zan.Toast, {
             mobile: "", //手机号
             describe: "" //商品描述
           })
+          App.curProductName = "";
+          App.curProductPid = "";
 
         } else {
           Common.alert(res.msg || "提交订单失败，请重试");

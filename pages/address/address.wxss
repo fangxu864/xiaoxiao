@@ -1,26 +1,50 @@
-.addr-item{
+.addr-item {
     padding: 10px 15px;
 }
-.addr-item__first{
+
+.addr-item__first {
     font-weight: bold;
     color: #303133;
     font-size: 14px;
     line-height: 30px;
 }
-.addr-item__detail{
-    color:#606266;
+
+.addr-item__detail {
+    color: #606266;
     font-size: 12px;
     border-bottom: 1rpx solid #e5e5e5;
     padding: 5px 0;
 }
-.addr-item__opt-line{
-    color:#606266;
+
+.addr-item__opt-line {
+    color: #606266;
     font-size: 12px;
     padding: 5px 0;
 }
-.addr-item__opt-rt{
+
+.addr-item__opt-rt {
     text-align: right;
 }
-.btn-text{
+
+.btn-text {
     margin-left: 5px;
+}
+
+.popup-example--bottom .zan-popup__container {
+    left: 0;
+    right: 0;
+}
+.popup-example--bottom .zan-form__title{
+    width: 70px;
+}
+
+.no-data{
+    padding: 50px;
+    text-align: center;
+    font-size: 14px;
+    color:#909399;
+}
+
+.icon-yigouxuan{
+    color: #F56C6C;
 }

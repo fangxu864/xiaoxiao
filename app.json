@@ -4,7 +4,8 @@
     "pages/publish/publish",
     "pages/usercenter/usercenter",
     "pages/edit/edit",
-    "pages/address/address"
+    "pages/address/address",
+    "pages/myorder/myorder"
   ],
   "window":{
     "navigationBarBackgroundColor": "#393a3e",
