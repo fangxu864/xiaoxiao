@@ -1,10 +1,13 @@
+<import src="../../dist/toast/index.wxml" />
 <import src="/dist/tab/index.wxml" />
 
 <view class="container">
   <view>
     <template is="zan-tab" data="{{ ...tab, componentId: 'tab' }}"></template>
   </view>
-  <view class="refresh-page"><span class="" bindtap="refreshPage"> 点我刷新..</span></view>
+  <view class="refresh-page">
+    <span class="" bindtap="refreshPage"> 点我刷新..</span>
+  </view>
   <scroll-view class="content-view" scroll-y bindscrolltolower="onScrollBottom">
     <view id="select1" wx:if="{{tab.selectedId == 1}}" class="">
 
@@ -19,7 +22,7 @@
             <view class="zan-row pro-item__btn-line">
               <view class="zan-col zan-col-12 pro-item__price">￥{{porduct.price}}/kg</view>
               <view class="zan-col zan-col-12 pro-item__okbtn">
-                <button class="zan-btn zan-btn--small zan-btn--primary" data-name="{{porduct.name}}" catchtap="onOrder" data-pid="{{porduct.id}}">立即下单</button>
+                <button class="zan-btn zan-btn--small zan-btn--primary" data-images="{{porduct.images}}" data-price="{{porduct.price}}" data-name="{{porduct.name}}" catchtap="addList" data-id="{{porduct.id}}">加入清单</button>
               </view>
             </view>
           </view>
@@ -50,7 +53,7 @@
             <view class="zan-row pro-item__btn-line">
               <view class="zan-col zan-col-12 pro-item__price">￥{{porduct.price}}/kg</view>
               <view class="zan-col zan-col-12 pro-item__okbtn">
-                <button class="zan-btn zan-btn--small zan-btn--primary" data-name="{{porduct.name}}" catchtap="onOrder" data-pid="{{porduct.id}}">立即下单</button>
+                <button class="zan-btn zan-btn--small zan-btn--primary" data-images="{{porduct.images}}" data-price="{{porduct.price}}" data-name="{{porduct.name}}" catchtap="addList" data-id="{{porduct.id}}">加入清单</button>
               </view>
             </view>
           </view>
@@ -81,7 +84,7 @@
             <view class="zan-row pro-item__btn-line">
               <view class="zan-col zan-col-12 pro-item__price">￥{{porduct.price}}/kg</view>
               <view class="zan-col zan-col-12 pro-item__okbtn">
-                <button class="zan-btn zan-btn--small zan-btn--primary" data-name="{{porduct.name}}" catchtap="onOrder" data-pid="{{porduct.id}}">立即下单</button>
+                <button class="zan-btn zan-btn--small zan-btn--primary" data-images="{{porduct.images}}" data-price="{{porduct.price}}" data-name="{{porduct.name}}" catchtap="addList" data-id="{{porduct.id}}">加入清单</button>
               </view>
             </view>
           </view>
@@ -101,3 +104,19 @@
     </view>
   </scroll-view>
 </view>
+
+<view class="popup-example--bottom zan-popup zan-popup--bottom {{ showBottomPopup ? 'zan-popup--show' : ''}}">
+  <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
+  <view class="zan-popup__container">
+    <view class="zan-cell zan-form__item">
+      <text class="zan-form__title">购买数量(kg)</text>
+      <input class="zan-form__input zan-cell__bd" bindblur="numBlur" value="{{buyNum}}" type="number" maxlength="11" placeholder="请填写购买数量(公斤kg)"
+      />
+    </view>
+    <view class="zan-btns">
+      <button class="zan-btn zan-btn--primary" catchtap="sureAddList">确定加入清单</button>
+    </view>
+  </view>
+</view>
+
+<template is="zan-toast" data="{{ zanToast }}"></template>

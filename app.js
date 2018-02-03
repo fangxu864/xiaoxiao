@@ -1,4 +1,5 @@
 var Cache = require("./cache.js");
+var shoppingCart = require("./shoppingCart.js");
 
 App({
 
@@ -10,6 +11,9 @@ App({
 
   curProductName: "",
   curProductPid: "",
+
+  //购物车的相关逻辑
+  shoppingCart: shoppingCart,
 
   onLaunch() {
     Date.prototype.format = function (format) {

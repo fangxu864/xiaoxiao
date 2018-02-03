@@ -2,9 +2,103 @@
 
 <view class="container">
 
+    <block wx:if="{{prolist.length > 0}}">
+        <!-- 地址 -->
+        <view class="zan-panel addr-box">
+            <view class="zan-cell zan-cell--access">
+                <view class="zan-cell__hd icon-box">
+                    <icon class="icon-dizhi iconfont"></icon>
+                </view>
+                <view class="zan-cell__bd">
+                    <view class="zan-row">
+                        <view class="zan-col zan-col-24">15659329937 刘大哥</view>
+                    </view>
+                    <view class="zan-row">
+                        <view class="zan-col zan-col-24 zan-ellipsis addr-detail">河南省光山县南向店乡长冲村</view>
+                    </view>
+                </view>
+                <view class="zan-cell__ft"></view>
+            </view>
+        </view>
+
+        <!-- 购买物品列表 -->
+        <view class="zan-panel" wx:for="{{prolist}}" wx:for-item="pro">
+            <view class="pro">
+                <view class="zan-row">
+                    <view class="zan-col zan-col-6 pro-lt">
+                        <image lazy-load="true" class="pro-lt__img" mode="aspectFit" src="{{pro.images}}"></image>
+                    </view>
+                    <view class="zan-col zan-col-18 pro-rt">
+                        <view class="row">
+                            <view class="zan-col zan-col-10 pro-name zan-ellipsis">{{pro.name}}</view>
+                            <view class="zan-col zan-col-6">{{pro.price}}元/kg</view>
+                            <view class="zan-col zan-col-2 c-secondary">X</view>
+                            <view class="zan-col zan-col-6">{{pro.num}}kg</view>
+                        </view>
+                        <view class="row">
+                            <view class="zan-col zan-col-8">
+                                <text class="zan-c-red">￥</text>{{pro.total}}</view>
+                            <view class="zan-col zan-col-16 pro__btn-line">
+                                <button class="zan-btn zan-btn--small zan-btn--primary zan-btn--plain" data-id="{{pro.id}}" data-num="{{pro.num}}" catchtap="changeNum">改数量</button>
+                                <button class="zan-btn zan-btn--small zan-btn--danger zan-btn--plain pro__deleteBtn" data-id="{{pro.id}}" catchtap="delPro">删除</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="zan-panel">
+            <view class="zan-cell">
+                <view class="zan-cell__bd">总价钱(参考)</view>
+                <view class="zan-cell__ft">
+                    <text class="zan-c-red">￥</text>{{totalMoney}}</view>
+            </view>
+        </view>
+
+        <!-- 内容文本 -->
+        <view class="zan-panel-title">详细备注(选填)</view>
+        <view class="zan-panel">
+            <textarea maxlength="100" placeholder="请输入备注内容" bindblur="contentBlur" value="{{content}}" class="content-textarea zan-font-14"></textarea>
+        </view>
+
+
+        <!-- 按钮 -->
+        <view class="zan-panel">
+            <view style="padding: 15px;">
+                <button class="zan-btn zan-btn--primary" bindtap="submitOrder">确认下单</button>
+            </view>
+
+        </view>
+    </block>
+    <block wx:else>
+        <view class="zan-panel">
+            <view class="no-data">
+                您还没有选择商品哦，快去发现看看吧~
+            </view>
+        </view>
+    </block>
+
+    <view class="popup-example--bottom zan-popup zan-popup--bottom {{ showBottomPopup ? 'zan-popup--show' : ''}}">
+        <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
+        <view class="zan-popup__container">
+            <view class="zan-cell zan-form__item">
+                <text class="zan-form__title">购买数量(kg)</text>
+                <input class="zan-form__input zan-cell__bd" bindblur="numBlur" value="{{buyNum}}" type="number" maxlength="11" placeholder="请填写购买数量(公斤kg)"
+                />
+            </view>
+            <view class="zan-btns">
+                <button class="zan-btn zan-btn--primary" catchtap="sureAddList">确定</button>
+            </view>
+        </view>
+    </view>
+
+
+
+
 
     <!-- 货物信息 -->
-    <view class="zan-panel">
+    <!-- <view class="zan-panel">
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">买什么</text>
             <input class="zan-form__input zan-cell__bd" bindblur="describeBlur" value="{{describe}}" maxlength="60" placeholder="物品名称(如：黄瓜鱼、螃蟹)"
@@ -15,10 +109,10 @@
             <input class="zan-form__input zan-cell__bd" bindblur="numBlur" value="{{num}}" type="number" maxlength="20" placeholder="请填写购买数量(单位：kg)"
             />
         </view>
-    </view>
+    </view> -->
 
     <!-- 表单 -->
-    <view class="zan-panel">
+    <!-- <view class="zan-panel">
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">收货人</text>
             <input class="zan-form__input zan-cell__bd" bindblur="nameBlur" value="{{name}}" maxlength="10" placeholder="请填收货人姓名" />
@@ -28,7 +122,7 @@
             <input class="zan-form__input zan-cell__bd" bindblur="mobileBlur" value="{{mobile}}" type="number" maxlength="11" placeholder="请填写联系电话"
             />
         </view>
-        <!-- <view class="zan-cell zan-form__item">
+        <view class="zan-cell zan-form__item">
             <text class="zan-form__title">选择地区</text>
             <view class="zan-cell__bd">
                 <picker mode="region" bindchange="bindRegionChange" value="{{region}}" >
@@ -37,28 +131,15 @@
                     </view>
                 </picker>
             </view>
-        </view> -->
+        </view>
         <view class="zan-cell zan-form__item">
             <text class="zan-form__title">收货地址</text>
             <input class="zan-form__input zan-cell__bd" bindblur="addressBlur" value="{{address}}" maxlength="60" placeholder="请填写详细地址"
             />
         </view>
-    </view>
-
-    <!-- 内容文本 -->
-    <!-- <view class="zan-panel-title">详细备注(选填)</view>
-    <view class="zan-panel">
-        <textarea maxlength="100" placeholder="请输入备注内容" bindblur="contentBlur" value="{{content}}" class="content-textarea zan-font-14"></textarea>
     </view> -->
 
 
-    <!-- 按钮 -->
-    <view class="zan-panel">
-        <view style="padding: 15px;">
-            <button class="zan-btn zan-btn--primary" bindtap="submitOrder">确认下单</button>
-        </view>
-
-    </view>
 
 </view>
 

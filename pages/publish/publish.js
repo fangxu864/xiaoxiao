@@ -9,14 +9,39 @@ Page(Object.assign({}, Zan.Toast, {
     name: "", //下单人姓名
     address: "", //收货地址
     mobile: "", //手机号
-    describe: "" //商品描述
+    describe: "", //商品描述
+
+    prolist: [],
+    totalMoney: 0,
+
+    showBottomPopup: false,
+    buyNum: 0
   },
 
   onShow: function () {
     this.setData({
       describe: App.curProductName
     })
+
+
+    this.renderList();
     this.getAddrData();
+  },
+
+  //渲染列表
+  renderList() {
+    var cartData = App.shoppingCart.getData();
+
+    var totalMoney = 0;
+
+    cartData.forEach(item => {
+      item["total"] = (Number(item.price) * Number(item.num)).toFixed(2);
+      totalMoney += Number(item["total"]);
+    });
+    this.setData({
+      prolist: cartData,
+      totalMoney: Number(totalMoney).toFixed(2)
+    })
   },
 
   getAddrData() {
@@ -60,35 +85,88 @@ Page(Object.assign({}, Zan.Toast, {
     });
   },
 
+  /**
+   * 打开数量弹框
+   * 
+   */
+  openNumPupop() {
+    this.setData({
+      showBottomPopup: true
+    })
+  },
 
+  closeNumPupop() {
+    this.setData({
+      showBottomPopup: false
+    })
+  },
+
+
+  toggleBottomPopup() {
+    this.setData({
+      showBottomPopup: !this.data.showBottomPopup
+    });
+  },
+
+  //数量
   numBlur: function (e) {
-    this.setData({
-      num: e.detail.value
-    })
+    this.curItemData.num = e.detail.value;
   },
 
-  addressBlur: function (e) {
-    this.setData({
-      address: e.detail.value
-    })
+  curItemData: {
+    id: "",
+    num: ""
   },
 
-  nameBlur: function (e) {
+  //改数量
+  changeNum(e) {
+    var dataSet = e.currentTarget.dataset;
+    this.curItemData.id = dataSet.id;
+    this.curItemData.num = dataSet.num;
     this.setData({
-      name: e.detail.value
+      buyNum: dataSet.num
     })
+    this.openNumPupop();
   },
 
-  mobileBlur: function (e) {
-    this.setData({
-      mobile: e.detail.value
-    })
+  //确认更改数量
+  sureAddList() {
+    if (!this.curItemData.num || Number(this.curItemData.num) <= 0) {
+      this.showZanToast("请填写正确的购买的数量", 1500);
+      return false;
+    }
+    let result = App.shoppingCart.alter(this.curItemData.id, this.curItemData.num);
+    if (result) {
+      this.showZanToast("更改成功", 1500);
+      this.renderList();
+    } else {
+      this.showZanToast("更改失败", 1500);
+    }
+    this.closeNumPupop();
   },
 
-  describeBlur: function (e) {
-    this.setData({
-      describe: e.detail.value
+  //删除产品
+  delPro(e) {
+    var _this = this;
+    var dataSet = e.currentTarget.dataset;
+    var id = dataSet.id;
+
+    wx.showModal({
+      title: '提示',
+      content: '确定删除该商品？',
+      success: function (res) {
+        if (res.confirm) {
+          var result = App.shoppingCart.remove(id);
+          if (result) { //删除成功
+            _this.renderList();
+            _this.showZanToast("删除成功", 1500);
+          }
+        } else if (res.cancel) {
+          // console.log('用户点击取消')
+        }
+      }
     })
+
   },
 
   submitOrder: function () {

@@ -7,7 +7,7 @@ var App = getApp();
 var Common = require("../../util/common.js");
 var Zan = require('../../dist/index.js');
 
-Page(extend({}, Tab, {
+Page(extend({}, Tab, Zan.Toast, {
 
   pageSize: 5,
 
@@ -47,9 +47,14 @@ Page(extend({}, Tab, {
     statusText: {
       1: "上滑动加载更多..",
       2: "没有更多了..",
-    }
+    },
+
+    showBottomPopup: false,
+    buyNum: ""
 
   },
+
+
 
   onLoad: function () {
     console.log(1212);
@@ -62,13 +67,69 @@ Page(extend({}, Tab, {
     })
   },
 
-  onOrder(e) {
-    console.log(e.currentTarget.dataset);
-    App.curProductName = e.currentTarget.dataset.name;
-    App.curProductPid = e.currentTarget.dataset.pid;
-    wx.switchTab({
-      url: '/pages/publish/publish'
+  /**
+   * 打开数量弹框
+   * 
+   */
+  openNumPupop() {
+    this.setData({
+      showBottomPopup: true
     })
+  },
+
+  closeNumPupop() {
+    this.setData({
+      showBottomPopup: false
+    })
+  },
+
+
+  toggleBottomPopup() {
+    this.setData({
+      showBottomPopup: !this.data.showBottomPopup
+    });
+  },
+
+  curItemData: {
+    name: "",
+    id: "",
+    num: "",
+    price: "",
+    images: ""
+  },
+
+  //加入清单
+  addList(e) {
+    var dataSet = e.currentTarget.dataset;
+    this.curItemData.name = dataSet.name;
+    this.curItemData.id = dataSet.id;
+    this.curItemData.num = dataSet.num;
+    this.curItemData.price = dataSet.price;
+    this.curItemData.images = dataSet.images;
+    this.openNumPupop();
+  },
+
+  //确认加入清单
+  sureAddList() {
+    if (!this.curItemData.num || Number(this.curItemData.num) <= 0) {
+      this.showZanToast("请填写正确的购买的数量", 1500);
+      return false;
+    }
+    let result = App.shoppingCart.add(this.curItemData);
+    if (result) {
+      this.showZanToast("添加成功,可去下单页下单", 1500);
+    } else {
+      this.showZanToast("增加清单失败", 1500);
+    }
+    this.setData({
+      buyNum: ""
+    })
+    this.closeNumPupop();
+  },
+
+  //数量
+  numBlur: function (e) {
+    this.curItemData.num = e.detail.value;
   },
 
   getData(tabId) {
@@ -94,12 +155,12 @@ Page(extend({}, Tab, {
 
       },
       success: function (res) {
-        
+
         if (res.code == 200) {
           _this.setData({
             [`${curList}.data`]: _this.data[curList].data.concat(res.data.list),
           });
-          
+
           _this.setData({
             [`${curList}.page`]: Number(_this.data[curList].page) + 1,
           });
@@ -141,7 +202,7 @@ Page(extend({}, Tab, {
       this.getData(selectedId);
     }
 
-    
+
   },
 
 
