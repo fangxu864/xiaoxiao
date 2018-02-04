@@ -5,17 +5,17 @@ var Zan = require('../../dist/index.js');
 Page(Object.assign({}, Zan.Toast, {
 
   data: {
-    num: "", //数量 
-    name: "", //下单人姓名
-    address: "", //收货地址
-    mobile: "", //手机号
-    describe: "", //商品描述
+    remark: "", //备注
 
     prolist: [],
     totalMoney: 0,
 
-    showBottomPopup: false,
-    buyNum: 0
+    showNumPopup: false,
+    buyNum: 0,
+
+    curAddr: {},
+    addrList: [],
+    showAddrPopup: false
   },
 
   onShow: function () {
@@ -62,14 +62,14 @@ Page(Object.assign({}, Zan.Toast, {
       },
       success: function (res) {
         if (res.code == 200) {
-
-          var addr = res.data[0];
-
           _this.setData({
-            name: addr.name, //下单人姓名
-            address: addr.address, //收货地址
-            mobile: addr.mobile, //手机号
-          })
+            addrList: res.data
+          });
+          if (res.data[0]) {
+            _this.setData({
+              curAddr: res.data[0]
+            });
+          }
         } else {
           // Common.alert(res.msg || "提交订单失败，请重试");
         }
@@ -91,26 +91,70 @@ Page(Object.assign({}, Zan.Toast, {
    */
   openNumPupop() {
     this.setData({
-      showBottomPopup: true
+      showNumPopup: true
     })
   },
 
   closeNumPupop() {
     this.setData({
-      showBottomPopup: false
+      showNumPopup: false
     })
   },
 
 
-  toggleBottomPopup() {
+  toggleNumPopup() {
     this.setData({
-      showBottomPopup: !this.data.showBottomPopup
+      showNumPopup: !this.data.showNumPopup
     });
+  },
+
+  openAddrPupop() {
+    this.setData({
+      showAddrPopup: true
+    })
+  },
+
+  closeAddrPupop() {
+    this.setData({
+      showAddrPopup: false
+    })
+  },
+
+
+  toggleAddrPopup() {
+    this.setData({
+      showAddrPopup: !this.data.showAddrPopup
+    });
+  },
+
+  //地址切换
+  onAddrPick() {
+    this.openAddrPupop();
+  },
+
+  //点击地址列表
+  onAddrListTap(e) {
+    var _this = this;
+    var curId = e.currentTarget.dataset.id;
+    this.data.addrList.forEach(item => {
+      if (item.id == curId) {
+        _this.setData({
+          curAddr: item
+        })
+      }
+    })
+    this.closeAddrPupop()
   },
 
   //数量
   numBlur: function (e) {
     this.curItemData.num = e.detail.value;
+  },
+  //数量
+  remarkBlur: function (e) {
+    this.setData({
+      remark: e.detail.value
+    })
   },
 
   curItemData: {
@@ -175,44 +219,16 @@ Page(Object.assign({}, Zan.Toast, {
     var params = {};
 
     //校验下单描述
-    if (this.data.describe == "") {
-      this.showZanToast("请填写您要购买的物品", 1500);
-      return false;
-    } else {
-      params["describe"] = this.data.describe;
-    }
+    // if (this.data.describe == "") {
+    //   this.showZanToast("请填写您要购买的物品", 1500);
+    //   return false;
+    // } else {
+    //   params["describe"] = this.data.describe;
+    // }
 
-    //校验数量
-    if (this.data.num == "") {
-      this.showZanToast("请填写购买数量", 1500);
-      return false;
-    } else {
-      params["num"] = this.data.num;
-    }
-
-    //校验姓名
-    if (this.data.name == "") {
-      this.showZanToast("请填写收货人姓名", 1500);
-      return false;
-    } else {
-      params["name"] = this.data.name;
-    }
-
-    //校验手机
-    if (!/\d{11}/.test(this.data.mobile)) {
-      this.showZanToast("手机号格式错误", 1500);
-      return false;
-    } else {
-      params["mobile"] = this.data.mobile;
-    }
-
-    //校验地址
-    if (this.data.address == "") {
-      this.showZanToast("请填写收货地址", 1500);
-      return false;
-    } else {
-      params["address"] = this.data.address;
-    }
+    params["remark"] = this.data.remark;
+    params["addr"] = this.data.curAddr;
+    params["paroducts"] = this.data.prolist
 
     App.ajax({
       debug: false,
@@ -231,16 +247,16 @@ Page(Object.assign({}, Zan.Toast, {
       success: function (res) {
         if (res.code == 200) {
 
-          Common.alert("下单成功,稍后我们会联系您");
-          _this.setData({
-            num: "", //数量 
-            name: "", //下单人姓名
-            address: "", //收货地址
-            mobile: "", //手机号
-            describe: "" //商品描述
-          })
-          App.curProductName = "";
-          App.curProductPid = "";
+          // Common.alert("下单成功,稍后我们会联系您");
+          // _this.setData({
+          //   num: "", //数量 
+          //   name: "", //下单人姓名
+          //   address: "", //收货地址
+          //   mobile: "", //手机号
+          //   describe: "" //商品描述
+          // })
+          // App.curProductName = "";
+          // App.curProductPid = "";
 
         } else {
           Common.alert(res.msg || "提交订单失败，请重试");

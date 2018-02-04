@@ -83,10 +83,18 @@
     color: #C0C4CC;
 }
 
-.popup-example--bottom .zan-popup__container {
+.num-popup .zan-popup__container {
     left: 0;
     right: 0;
 }
-.popup-example--bottom .zan-form__title{
+.num-popup .zan-form__title{
+    width: 100px;
+}
+
+.addr-popup .zan-popup__container {
+    left: 0;
+    right: 0;
+}
+.num-popup .zan-form__title{
     width: 100px;
 }

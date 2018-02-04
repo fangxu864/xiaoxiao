@@ -4,22 +4,61 @@
 
     <block wx:if="{{prolist.length > 0}}">
         <!-- 地址 -->
-        <view class="zan-panel addr-box">
-            <view class="zan-cell zan-cell--access">
-                <view class="zan-cell__hd icon-box">
-                    <icon class="icon-dizhi iconfont"></icon>
-                </view>
-                <view class="zan-cell__bd">
-                    <view class="zan-row">
-                        <view class="zan-col zan-col-24">15659329937 刘大哥</view>
+
+        <block wx:if="{{addrList.length > 0}}">
+
+            <block wx:if="{{addrList.length > 1}}">
+                <view class="zan-panel">
+                    <view class="zan-cell addr-box zan-cell--access" catchtap="onAddrPick">
+                        <view class="zan-cell__hd icon-box">
+                            <icon class="icon-dizhi iconfont"></icon>
+                        </view>
+                        <view class="zan-cell__bd">
+                            <view class="zan-row">
+                                <view class="zan-col zan-col-24">{{curAddr.mobile}} {{curAddr.name}}</view>
+                            </view>
+                            <view class="zan-row">
+                                <view class="zan-col zan-col-24 zan-ellipsis addr-detail">{{curAddr.address}}</view>
+                            </view>
+                        </view>
+                        <view class="zan-cell__ft"></view>
                     </view>
-                    <view class="zan-row">
-                        <view class="zan-col zan-col-24 zan-ellipsis addr-detail">河南省光山县南向店乡长冲村</view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="zan-panel">
+                    <view class="zan-cell addr-box">
+                        <view class="zan-cell__hd icon-box">
+                            <icon class="icon-dizhi iconfont"></icon>
+                        </view>
+                        <view class="zan-cell__bd">
+                            <view class="zan-row">
+                                <view class="zan-col zan-col-24">{{curAddr.mobile}} {{curAddr.name}}</view>
+                            </view>
+                            <view class="zan-row">
+                                <view class="zan-col zan-col-24 zan-ellipsis addr-detail">{{curAddr.address}}</view>
+                            </view>
+                        </view>
+                        <view class="zan-cell__ft"></view>
                     </view>
                 </view>
-                <view class="zan-cell__ft"></view>
+            </block>
+        </block>
+        <block wx:else>
+            <view class="zan-panel">
+                <navigator url="/pages/address/address">
+                    <view class="zan-cell addr-box zan-cell--access">
+                        <view class="zan-cell__hd icon-box">
+                            <icon class="icon-dizhi iconfont"></icon>
+                        </view>
+                        <view class="zan-cell__bd">
+                            您还没有收获地址，点击去添加~
+                        </view>
+                        <view class="zan-cell__ft"></view>
+                    </view>
+                </navigator>
             </view>
-        </view>
+        </block>
 
         <!-- 购买物品列表 -->
         <view class="zan-panel" wx:for="{{prolist}}" wx:for-item="pro">
@@ -57,10 +96,12 @@
         </view>
 
         <!-- 内容文本 -->
-        <view class="zan-panel-title">详细备注(选填)</view>
-        <view class="zan-panel">
-            <textarea maxlength="100" placeholder="请输入备注内容" bindblur="contentBlur" value="{{content}}" class="content-textarea zan-font-14"></textarea>
-        </view>
+        <block wx:if="{{!showNumPopup && !showAddrPopup }}">
+            <view class="zan-panel-title">详细备注(选填)</view>
+            <view class="zan-panel">
+                <textarea maxlength="100" placeholder="请输入备注内容" bindblur="remarkBlur" value="{{remark}}" class="content-textarea zan-font-14"></textarea>
+            </view>
+        </block>
 
 
         <!-- 按钮 -->
@@ -68,7 +109,6 @@
             <view style="padding: 15px;">
                 <button class="zan-btn zan-btn--primary" bindtap="submitOrder">确认下单</button>
             </view>
-
         </view>
     </block>
     <block wx:else>
@@ -79,8 +119,8 @@
         </view>
     </block>
 
-    <view class="popup-example--bottom zan-popup zan-popup--bottom {{ showBottomPopup ? 'zan-popup--show' : ''}}">
-        <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
+    <view class="num-popup zan-popup zan-popup--bottom {{ showNumPopup ? 'zan-popup--show' : ''}}">
+        <view class="zan-popup__mask" catchtap="toggleNumPopup"></view>
         <view class="zan-popup__container">
             <view class="zan-cell zan-form__item">
                 <text class="zan-form__title">购买数量(kg)</text>
@@ -90,6 +130,28 @@
             <view class="zan-btns">
                 <button class="zan-btn zan-btn--primary" catchtap="sureAddList">确定</button>
             </view>
+        </view>
+    </view>
+
+    <view class="addr-popup zan-popup zan-popup--bottom {{ showAddrPopup ? 'zan-popup--show' : ''}}">
+        <view class="zan-popup__mask" catchtap="toggleAddrPopup"></view>
+        <view class="zan-popup__container">
+            <block wx:if="{{addrList.length > 1}}">
+                <view class="zan-cell addr-box zan-cell--access" wx:for="{{addrList}}" wx:for-item="addrItem" catchtap="onAddrListTap" data-id="{{addrItem.id}}">
+                    <view class="zan-cell__hd icon-box">
+                        <icon class="icon-dizhi iconfont"></icon>
+                    </view>
+                    <view class="zan-cell__bd">
+                        <view class="zan-row">
+                            <view class="zan-col zan-col-24">{{addrItem.mobile}} {{addrItem.name}}</view>
+                        </view>
+                        <view class="zan-row">
+                            <view class="zan-col zan-col-24 zan-ellipsis addr-detail">{{addrItem.address}}</view>
+                        </view>
+                    </view>
+                    <view class="zan-cell__ft"></view>
+                </view>
+            </block>
         </view>
     </view>
 
