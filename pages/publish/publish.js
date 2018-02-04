@@ -219,6 +219,7 @@ Page(Object.assign({}, Zan.Toast, {
       return false;
     } else {
       params["address"] = this.data.curAddr.address;
+      params["name"] = this.data.curAddr.name;
     }
 
     //校验手机
