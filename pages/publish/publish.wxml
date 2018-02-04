@@ -65,7 +65,7 @@
             <view class="pro">
                 <view class="zan-row">
                     <view class="zan-col zan-col-6 pro-lt">
-                        <image lazy-load="true" class="pro-lt__img" mode="aspectFit" src="{{pro.images}}"></image>
+                        <image lazy-load="true" bindtap="previewImg" data-src="{{pro.images}}" class="pro-lt__img" mode="aspectFit" src="{{pro.images}}"></image>
                     </view>
                     <view class="zan-col zan-col-18 pro-rt">
                         <view class="row">

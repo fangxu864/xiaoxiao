@@ -184,6 +184,14 @@ Page(Object.assign({}, Zan.Toast, {
     this.closeNumPupop();
   },
 
+  //预览图片
+  previewImg(e) {
+    var urls = [e.currentTarget.dataset.src];
+    wx.previewImage({
+      urls: urls // 需要预览的图片http链接列表
+    })
+  },
+
   //删除产品
   delPro(e) {
     var _this = this;

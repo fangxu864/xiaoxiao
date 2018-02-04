@@ -135,6 +135,14 @@ Page(extend({}, Tab, Zan.Toast, {
     this.curItemData.num = e.detail.value;
   },
 
+  //预览图片
+  previewImg(e) {
+    var urls = [e.currentTarget.dataset.src];
+    wx.previewImage({
+      urls: urls // 需要预览的图片http链接列表
+    })
+  },
+
   getData(tabId) {
     var curList = "list" + tabId;
     console.log(curList);
