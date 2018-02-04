@@ -219,14 +219,28 @@ Page(Object.assign({}, Zan.Toast, {
     var params = {};
 
     //校验收获地址
-    if (!this.data.curAddr.mobile) {
-      this.showZanToast("请正确填写收货信息", 1500);
+    if (!this.data.curAddr.address) {
+      this.showZanToast("请正确填写收货地址", 1500);
       return false;
     } else {
-      params["addr"] = this.data.curAddr;
+      params["address"] = this.data.curAddr.address;
     }
-    params["remark"] = this.data.remark;
-    params["paroducts"] = this.data.prolist
+
+    //校验手机
+    if (!/\d{11}/.test(this.data.curAddr.mobile)) {
+      this.showZanToast("请正确填写收货手机号", 1500);
+      return false;
+    } else {
+      params["mobile"] = this.data.curAddr.mobile;
+    }
+    params["describe"] = this.data.describe;
+
+    var products = {};
+    this.data.prolist.forEach(item => {
+      if (!products[item.uid]) products[item.uid] = {};
+      products[item.uid][item.id] = item.num;
+    })
+    params["products"] = products;
 
     App.ajax({
       debug: false,
@@ -244,18 +258,10 @@ Page(Object.assign({}, Zan.Toast, {
       },
       success: function (res) {
         if (res.code == 200) {
-
-          // Common.alert("下单成功,稍后我们会联系您");
-          // _this.setData({
-          //   num: "", //数量 
-          //   name: "", //下单人姓名
-          //   address: "", //收货地址
-          //   mobile: "", //手机号
-          //   describe: "" //商品描述
-          // })
-          // App.curProductName = "";
-          // App.curProductPid = "";
-
+          //清空购物车
+          App.shoppingCart.clear();
+          _this.renderList();
+          Common.alert("下单成功，稍后我们会联系您哦~");
         } else {
           Common.alert(res.msg || "提交订单失败，请重试");
         }

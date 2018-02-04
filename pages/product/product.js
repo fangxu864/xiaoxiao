@@ -95,7 +95,8 @@ Page(extend({}, Tab, Zan.Toast, {
     id: "",
     num: "",
     price: "",
-    images: ""
+    images: "",
+    uid:""
   },
 
   //加入清单
@@ -106,6 +107,7 @@ Page(extend({}, Tab, Zan.Toast, {
     this.curItemData.num = dataSet.num;
     this.curItemData.price = dataSet.price;
     this.curItemData.images = dataSet.images;
+    this.curItemData.uid = dataSet.uid;
     this.openNumPupop();
   },
 
@@ -115,6 +117,7 @@ Page(extend({}, Tab, Zan.Toast, {
       this.showZanToast("请填写正确的购买的数量", 1500);
       return false;
     }
+    console.log(this.curItemData)
     let result = App.shoppingCart.add(this.curItemData);
     if (result) {
       this.showZanToast("添加成功,可去下单页下单", 1500);

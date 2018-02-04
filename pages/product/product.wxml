@@ -22,7 +22,7 @@
             <view class="zan-row pro-item__btn-line">
               <view class="zan-col zan-col-12 pro-item__price">￥{{porduct.price}}/kg</view>
               <view class="zan-col zan-col-12 pro-item__okbtn">
-                <button class="zan-btn zan-btn--small zan-btn--primary" data-images="{{porduct.images}}" data-price="{{porduct.price}}" data-name="{{porduct.name}}" catchtap="addList" data-id="{{porduct.id}}">加入清单</button>
+                <button class="zan-btn zan-btn--small zan-btn--primary" data-uid="{{porduct.uid}}" data-images="{{porduct.images}}" data-price="{{porduct.price}}" data-name="{{porduct.name}}" catchtap="addList" data-id="{{porduct.id}}">加入清单</button>
               </view>
             </view>
           </view>
@@ -53,7 +53,7 @@
             <view class="zan-row pro-item__btn-line">
               <view class="zan-col zan-col-12 pro-item__price">￥{{porduct.price}}/kg</view>
               <view class="zan-col zan-col-12 pro-item__okbtn">
-                <button class="zan-btn zan-btn--small zan-btn--primary" data-images="{{porduct.images}}" data-price="{{porduct.price}}" data-name="{{porduct.name}}" catchtap="addList" data-id="{{porduct.id}}">加入清单</button>
+                <button class="zan-btn zan-btn--small zan-btn--primary" data-uid="{{porduct.uid}}" data-images="{{porduct.images}}" data-price="{{porduct.price}}" data-name="{{porduct.name}}" catchtap="addList" data-id="{{porduct.id}}">加入清单</button>
               </view>
             </view>
           </view>
@@ -84,7 +84,7 @@
             <view class="zan-row pro-item__btn-line">
               <view class="zan-col zan-col-12 pro-item__price">￥{{porduct.price}}/kg</view>
               <view class="zan-col zan-col-12 pro-item__okbtn">
-                <button class="zan-btn zan-btn--small zan-btn--primary" data-images="{{porduct.images}}" data-price="{{porduct.price}}" data-name="{{porduct.name}}" catchtap="addList" data-id="{{porduct.id}}">加入清单</button>
+                <button class="zan-btn zan-btn--small zan-btn--primary" data-uid="{{porduct.uid}}" data-images="{{porduct.images}}" data-price="{{porduct.price}}" data-name="{{porduct.name}}" catchtap="addList" data-id="{{porduct.id}}">加入清单</button>
               </view>
             </view>
           </view>

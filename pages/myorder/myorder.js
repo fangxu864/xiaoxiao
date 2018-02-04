@@ -37,7 +37,7 @@ Page(Object.assign({}, Zan.Toast, {
                     // Common.alert("保存成功");
                     res.data.list.forEach(item => {
                         console.log(item.time)
-                        item.time = new Date(Number(item.time + "000")).format("yyyy-MM-dd");
+                        item.time = new Date(Number(item.time + "000")).format("yyyy-MM-dd hh:mm:ss");
                     });
                     _this.setData({
                         orderList: res.data.list
