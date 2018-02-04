@@ -19,11 +19,6 @@ Page(Object.assign({}, Zan.Toast, {
   },
 
   onShow: function () {
-    this.setData({
-      describe: App.curProductName
-    })
-
-
     this.renderList();
     this.getAddrData();
   },
@@ -233,7 +228,7 @@ Page(Object.assign({}, Zan.Toast, {
     } else {
       params["mobile"] = this.data.curAddr.mobile;
     }
-    params["describe"] = this.data.describe;
+    params["describe"] = this.data.remark;
 
     var products = {};
     this.data.prolist.forEach(item => {
