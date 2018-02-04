@@ -3,12 +3,12 @@
     <view class="zan-panel" wx:for="{{orderList}}" wx:for-item="item">
         <view class="order-item">
             <view class="zan-row order-item__ordernum-line">
-                <view class="zan-col zan-col-16 color-warn">订单号：{{item.order}}</view>
-                <view class="zan-col zan-col-8 order-item__time">{{item.time}}</view>
+                <view class="zan-col zan-col-8 color-warn">订单号：{{item.order}}</view>
+                <view class="zan-col zan-col-16 order-item__time">{{item.time}}</view>
             </view>
 
             <view class="zan-row" wx:for="{{item.goods}}" wx:for-item="good" >
-                <view class="zan-col zan-col-6 zan-ellipsis">{{good.name}}</view>
+                <view class="zan-col zan-col-6 zan-ellipsis color-main">{{good.name}}</view>
                 <view class="zan-col zan-col-6">{{good.price}}元/kg</view>
                 <view class="zan-col zan-col-4 c-placeholder">X</view>
                 <view class="zan-col zan-col-6">{{good.num}}kg</view>
