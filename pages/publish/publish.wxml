@@ -52,7 +52,7 @@
                             <icon class="icon-dizhi iconfont"></icon>
                         </view>
                         <view class="zan-cell__bd">
-                            您还没有收获地址，点击去添加~
+                            您还没有收货地址，点击去添加~
                         </view>
                         <view class="zan-cell__ft"></view>
                     </view>
