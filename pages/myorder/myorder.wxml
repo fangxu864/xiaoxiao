@@ -37,7 +37,7 @@
         </view>
         <view class="load-more">没有更多了..</view>
     </block>
-    <block>
+    <block wx:else>
         <view class="zan-panel">
             <view class="no-data">
                 暂无订单哦~
