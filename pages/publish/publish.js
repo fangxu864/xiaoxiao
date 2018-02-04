@@ -218,16 +218,14 @@ Page(Object.assign({}, Zan.Toast, {
     var _this = this;
     var params = {};
 
-    //校验下单描述
-    // if (this.data.describe == "") {
-    //   this.showZanToast("请填写您要购买的物品", 1500);
-    //   return false;
-    // } else {
-    //   params["describe"] = this.data.describe;
-    // }
-
+    //校验收获地址
+    if (!this.data.curAddr.mobile) {
+      this.showZanToast("请正确填写收货信息", 1500);
+      return false;
+    } else {
+      params["addr"] = this.data.curAddr;
+    }
     params["remark"] = this.data.remark;
-    params["addr"] = this.data.curAddr;
     params["paroducts"] = this.data.prolist
 
     App.ajax({
