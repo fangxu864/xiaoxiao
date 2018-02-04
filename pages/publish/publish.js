@@ -256,6 +256,9 @@ Page(Object.assign({}, Zan.Toast, {
           //清空购物车
           App.shoppingCart.clear();
           _this.renderList();
+          _this.setData({
+            remark: ""
+          })
           Common.alert("下单成功，稍后我们会联系您哦~");
         } else {
           Common.alert(res.msg || "提交订单失败，请重试");
