@@ -30,7 +30,7 @@
 				"pagePath": "pages/publish/publish",
 				"iconPath": "image/fabu.png",
 				"selectedIconPath": "image/fabu-active.png",
-				"text": "下单"
+				"text": "清单"
 			},
 			{
 				"pagePath": "pages/usercenter/usercenter",
