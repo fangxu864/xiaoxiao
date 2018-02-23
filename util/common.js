@@ -1,6 +1,6 @@
 var Common = {
 	
-	appId: "wx0f63975a0fd9f592",
+	appId: "wx7edf9772f47af7bd",
 	REQUEST_HOST: "https://api.12301dev.com/index.php",
 	SESSION_STORAGE_KEY: "pft-session-storage",
 	SESSION_STORAGE_EXPIRE_KEY: "pft-session-storage-expire", //session过期时长的key
