@@ -6,6 +6,14 @@ Page(Object.assign({}, Zan.Toast, {
 
     data: {
         orderList: [],
+
+        //订单状态
+        orderStatus: {
+            0: "待确认",
+            1: "已确认",
+            2: "已发货",
+            3: "已取消"
+        }
     },
 
     onLoad() {
@@ -19,10 +27,10 @@ Page(Object.assign({}, Zan.Toast, {
             debug: false,
             url: "/Home/Order/myOrders",
             data: {
-                page : 1,
+                page: 1,
                 pageSize: 100,
-                bime : "2018-01-01",
-                etime : "2020-01-01"
+                bime: "2018-01-01",
+                etime: "2020-01-01"
             },
             header: {},
             method: "POST",

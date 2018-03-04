@@ -19,6 +19,10 @@
                     <view class="zan-col zan-col-18">{{item.money}}元</view>
                 </view>
                 <view class="zan-row">
+                    <view class="zan-col zan-col-6 color-main">订单状态：</view>
+                    <view class="zan-col zan-col-18 color-warn">{{orderStatus[item.status]}}</view>
+                </view>
+                <view class="zan-row">
                     <view class="zan-col zan-col-6 color-main">收货人地址：</view>
                     <view class="zan-col zan-col-18">{{item.address}}</view>
                 </view>
