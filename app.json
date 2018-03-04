@@ -22,15 +22,15 @@
 		"list": [
 			{
 				"pagePath": "pages/product/product",
-				"iconPath": "image/faxian.png",
-				"selectedIconPath": "image/faxian-active.png",
-				"text": "发现"
+				"iconPath": "image/haixian.png",
+				"selectedIconPath": "image/haixian-active.png",
+				"text": "海鲜"
 			},
 			{
 				"pagePath": "pages/publish/publish",
-				"iconPath": "image/fabu.png",
-				"selectedIconPath": "image/fabu-active.png",
-				"text": "清单"
+				"iconPath": "image/cart.png",
+				"selectedIconPath": "image/cart-active.png",
+				"text": "购物车"
 			},
 			{
 				"pagePath": "pages/usercenter/usercenter",

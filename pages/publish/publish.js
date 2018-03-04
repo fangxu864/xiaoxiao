@@ -2,7 +2,7 @@ var App = getApp();
 var Common = require("../../util/common.js");
 var Zan = require('../../dist/index.js');
 
-Page(Object.assign({}, Zan.Toast, {
+Page(Object.assign({}, Zan.Toast,Zan.Stepper, {
 
   data: {
     remark: "", //备注
@@ -15,7 +15,21 @@ Page(Object.assign({}, Zan.Toast, {
 
     curAddr: {},
     addrList: [],
-    showAddrPopup: false
+    showAddrPopup: false,
+
+    buyNumStepper: {
+      stepper: 1, //和购买数量对应
+      min: 1,
+      max: 99999
+    },
+
+    //用户当前点击的产品参数
+    curProData: {
+      name: "", //产品名称
+      images: "", //图片
+      price: "", //价格
+      pricetype: "" //价格单位
+    }
   },
 
   onShow: function () {
@@ -80,27 +94,15 @@ Page(Object.assign({}, Zan.Toast, {
     });
   },
 
-  /**
-   * 打开数量弹框
-   * 
-   */
-  openNumPupop() {
-    this.setData({
-      showNumPopup: true
-    })
-  },
-
-  closeNumPupop() {
-    this.setData({
-      showNumPopup: false
-    })
-  },
-
 
   toggleNumPopup() {
     this.setData({
       showNumPopup: !this.data.showNumPopup
     });
+    // this.curItemData.num = 1;
+    // this.setData({
+    //   'buyNumStepper.stepper': 1
+    // })
   },
 
   openAddrPupop() {
@@ -157,15 +159,34 @@ Page(Object.assign({}, Zan.Toast, {
     num: ""
   },
 
+  handleZanStepperChange(e) {
+    var componentId = e.componentId;
+    var stepper = e.stepper;
+
+    this.curItemData.num = stepper;
+    this.setData({
+      [`${componentId}.stepper`]: stepper
+    });
+  },
+
   //改数量
   changeNum(e) {
     var dataSet = e.currentTarget.dataset;
     this.curItemData.id = dataSet.id;
     this.curItemData.num = dataSet.num;
+    this.curItemData.num =dataSet.num;
     this.setData({
-      buyNum: dataSet.num
+      'buyNumStepper.stepper': dataSet.num
     })
-    this.openNumPupop();
+    this.setData({
+      curProData: {
+        name: dataSet.name, //产品名称
+        images: dataSet.images, //图片
+        price: dataSet.price, //价格
+        pricetype: dataSet.pricetype //价格单位
+      }
+    })
+    this.toggleNumPopup();
   },
 
   //确认更改数量
@@ -181,7 +202,7 @@ Page(Object.assign({}, Zan.Toast, {
     } else {
       this.showZanToast("更改失败", 1500);
     }
-    this.closeNumPupop();
+    this.toggleNumPopup();
   },
 
   //预览图片

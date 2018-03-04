@@ -13,6 +13,9 @@
     top: 76px;
     bottom: 0
 }
+.content-view.notice{
+    top: 112px;
+}
 
 .pro-item {
     background: #fff;
@@ -53,7 +56,8 @@
 }
 
 .pro-item__okbtn {
-    text-align: center;
+    text-align: right;
+    padding-right: 20px;
 }
 
 .load-more {
@@ -79,4 +83,64 @@
 }
 .popup-example--bottom .zan-form__title{
     width: 100px;
+}
+
+/* 文字提示样式 */
+.text-popup-con{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 20px;
+    color: #303133;
+
+    word-break: break-all;
+    padding: 10px 15px;
+    text-indent: 2em;
+    text-align: justify;
+
+}
+.text-popup-cancel{
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translate3d(-50%,0,0);
+}
+
+.zan-popup__container--text{
+    width: 80%;
+    height: 70%;
+    border-radius: 5px;
+}
+
+
+/* 填写购买数量的上面部分 */
+.buynum-top{
+    position: relative;
+    padding: 10px 15px;
+    padding-left: 100px;
+}
+.buynum-top__imgbox{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    left: 10px;
+    bottom: 0px;
+    background-color: #fff;
+    box-shadow:0px 0px 3px #DCDFE6;
+
+}
+.buynum-top__imgbox image{
+    width: 80px;
+    height: 80px;
+}
+.buynum-top__name{
+    font-size: 14px;
+    padding-bottom: 10px;
+    color: #303133;
+}
+.buynum-top__price{
+    font-size: 14px;
+    color: #F56C6C;
 }

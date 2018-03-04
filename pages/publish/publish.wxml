@@ -1,4 +1,5 @@
 <import src="../../dist/toast/index.wxml" />
+<import src="/dist/stepper/index.wxml" />
 
 <view class="container">
 
@@ -70,15 +71,17 @@
                     <view class="zan-col zan-col-18 pro-rt">
                         <view class="row">
                             <view class="zan-col zan-col-10 pro-name zan-ellipsis">{{pro.name}}</view>
-                            <view class="zan-col zan-col-6">{{pro.price}}元/kg</view>
+                            <view class="zan-col zan-col-6">{{pro.price}}元/{{pro.pricetype}}</view>
                             <view class="zan-col zan-col-2 c-secondary">X</view>
-                            <view class="zan-col zan-col-6">{{pro.num}}kg</view>
+                            <view class="zan-col zan-col-6">{{pro.num}}</view>
                         </view>
                         <view class="row">
                             <view class="zan-col zan-col-8">
                                 <text class="zan-c-red">￥</text>{{pro.total}}</view>
                             <view class="zan-col zan-col-16 pro__btn-line">
-                                <button class="zan-btn zan-btn--small zan-btn--primary zan-btn--plain" data-id="{{pro.id}}" data-num="{{pro.num}}" catchtap="changeNum">改数量</button>
+                                <button class="zan-btn zan-btn--small zan-btn--primary zan-btn--plain" data-images="{{pro.images}}" data-price="{{pro.price}}"
+                                    data-name="{{pro.name}}" data-pricetype="{{pro.pricetype}}" data-id="{{pro.id}}" data-num="{{pro.num}}"
+                                    catchtap="changeNum">改数量</button>
                                 <button class="zan-btn zan-btn--small zan-btn--danger zan-btn--plain pro__deleteBtn" data-id="{{pro.id}}" catchtap="delPro">删除</button>
                             </view>
                         </view>
@@ -114,7 +117,7 @@
     <block wx:else>
         <view class="zan-panel">
             <view class="no-data">
-                您还没有选择商品哦，快去发现看看吧~
+                您的购物车快饿瘪了，快去找些海鲜来~
             </view>
         </view>
     </block>
@@ -122,10 +125,20 @@
     <view class="num-popup zan-popup zan-popup--bottom {{ showNumPopup ? 'zan-popup--show' : ''}}">
         <view class="zan-popup__mask" catchtap="toggleNumPopup"></view>
         <view class="zan-popup__container">
-            <view class="zan-cell zan-form__item">
-                <text class="zan-form__title">购买数量(kg)</text>
-                <input class="zan-form__input zan-cell__bd" bindblur="numBlur" value="{{buyNum}}" type="number" maxlength="11" placeholder="请填写购买数量(公斤kg)"
-                />
+            <view class="buynum-top">
+                <view class="buynum-top__imgbox">
+                    <image class="buynum-top__img" mode="aspectFit" src="{{curProData.images}}"></image>
+                </view>
+                <view class="buynum-top__right">
+                    <view class="buynum-top__name">{{curProData.name}}</view>
+                    <!-- <view class="buynum-top__price">￥{{curProData.price}}/{{curProData.pricetype}}</view> -->
+                </view>
+            </view>
+            <view class="zan-cell">
+                <view class="zan-cell__bd">购买数量</view>
+                <view class="zan-cell__ft">
+                    <template is="zan-stepper" data="{{ ...buyNumStepper, componentId: 'buyNumStepper' }}" />
+                </view>
             </view>
             <view class="zan-btns">
                 <button class="zan-btn zan-btn--primary" catchtap="sureAddList">确定</button>

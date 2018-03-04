@@ -9,7 +9,7 @@
     },
     "editor.fontFamily": " 'Courier New',Consolas, monospace",
     "editor.folding": true,
-    "window.zoomLevel": -1,
+    "window.zoomLevel": -2,
     "git.enableSmartCommit": true,
     "workbench.colorTheme": "Monokai",
     "files.autoSave": "off",

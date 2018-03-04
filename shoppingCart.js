@@ -21,7 +21,8 @@ var shoppingCart = {
             price: opt.price, //商品价格
             num: opt.num, //商品数量
             id: opt.id, //商品id
-            uid: opt.uid //用户id
+            uid: opt.uid, //用户id
+            pricetype: opt.pricetype //价格单位
         };
         this._setDataToStorage(lastData);
         return true;

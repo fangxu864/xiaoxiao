@@ -10,9 +10,9 @@
 
                 <view class="zan-row" wx:for="{{item.goods}}" wx:for-item="good">
                     <view class="zan-col zan-col-6 zan-ellipsis color-main">{{good.name}}</view>
-                    <view class="zan-col zan-col-6">{{good.price}}元/kg</view>
+                    <view class="zan-col zan-col-6">{{good.price}}元/{{good.price_type}}</view>
                     <view class="zan-col zan-col-4 c-placeholder">X</view>
-                    <view class="zan-col zan-col-6">{{good.num}}kg</view>
+                    <view class="zan-col zan-col-6">{{good.num}}</view>
                 </view>
                 <view class="zan-row">
                     <view class="zan-col zan-col-6 color-main">总价钱：</view>
