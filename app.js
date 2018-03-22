@@ -4,7 +4,7 @@ var shoppingCart = require("./shoppingCart.js");
 App({
 
   appId: "",
-  REQUEST_HOST: "https://blog.quanmingpian.com",
+  REQUEST_HOST: "https://www.fzseafood.cn",
   SESSION_STORAGE_KEY: "xxs-session-storage",
   SERVER_ERROR_TEXT: "服务器未成功处理请求",
   cache: Cache,
