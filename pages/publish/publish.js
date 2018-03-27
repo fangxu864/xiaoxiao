@@ -237,10 +237,10 @@ Page(Object.assign({}, Zan.Toast,Zan.Stepper, {
 
   },
 
-  submitOrder: function () {
-    console.log(12121)
+  submitOrder: function (e) {
     var _this = this;
     var params = {};
+    params["form_id"] = e.detail.formId;
 
     //校验收获地址
     if (!this.data.curAddr.address) {

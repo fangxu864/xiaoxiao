@@ -110,7 +110,9 @@
         <!-- 按钮 -->
         <view class="zan-panel">
             <view style="padding: 15px;">
-                <button class="zan-btn zan-btn--primary" bindtap="submitOrder">确认下单</button>
+                <form report-submit="true" bindsubmit="submitOrder">
+                     <button class="zan-btn zan-btn--primary" form-type="submit">确认下单</button>
+                </form>
             </view>
         </view>
     </block>
